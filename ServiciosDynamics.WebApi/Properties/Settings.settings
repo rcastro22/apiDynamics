@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ServiciosDynamics.WebApi.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ServiciosDynamics_WebApi_WSFacturas_WSFacturas" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://srvdynamicsdesa/ws/WSFacturas.asmx</Value>
+    </Setting>
+    <Setting Name="ServiciosDynamics_WebApi_WSDGArchivo_WSDGArchivo" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://srvdynamicsdesa/ws/WSDGArchivo.asmx</Value>
+    </Setting>
+    <Setting Name="ServiciosDynamics_WebApi_WSEmpleados_WSEmpleados" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://srvdynamicsdesa/ws/WSEmpleados.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
