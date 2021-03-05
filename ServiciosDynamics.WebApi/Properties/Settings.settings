@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="ServiciosDynamics_WebApi_WSFacturas_WSFacturas" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://srvdynamicsdesa/ws/WSFacturas.asmx</Value>
+      <Value Profile="(Default)">http://10.0.3.71/ws/WSFacturas.asmx</Value>
     </Setting>
     <Setting Name="ServiciosDynamics_WebApi_WSDGArchivo_WSDGArchivo" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://srvdynamicsdesa/ws/WSDGArchivo.asmx</Value>

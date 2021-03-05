@@ -339,10 +339,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>ServiciosDynamics_WebApi_WSEmpleados_WSEmpleados</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://srvdynamicsdesa/ws/WSFacturas.asmx">
+    <WebReferenceUrl Include="http://10.0.3.71/ws/WSFacturas.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WSFacturas\</RelPath>
-      <UpdateFromURL>http://srvdynamicsdesa/ws/WSFacturas.asmx</UpdateFromURL>
+      <UpdateFromURL>http://10.0.3.71/ws/WSFacturas.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

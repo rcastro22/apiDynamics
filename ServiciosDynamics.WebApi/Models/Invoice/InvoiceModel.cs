@@ -30,5 +30,7 @@ namespace ServiciosDynamics.WebApi.Models.Invoice
 
         [Required]
         public string usuario_oracle { get; set; }
+
+        public string no_tramite { get; set; }
     }
 }

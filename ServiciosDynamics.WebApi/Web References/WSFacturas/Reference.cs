@@ -24,7 +24,7 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="WSFacturasSoap", Namespace="http://galileo.edu/dynamicsax/facturas")]
@@ -35,6 +35,8 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         private System.Threading.SendOrPostCallback validarFacturaOperationCompleted;
         
         private System.Threading.SendOrPostCallback infoBancariaDocenteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback validaEsDocenteOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -84,8 +86,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         public event infoBancariaDocenteCompletedEventHandler infoBancariaDocenteCompleted;
         
         /// <remarks/>
+        public event validaEsDocenteCompletedEventHandler validaEsDocenteCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/agregarFactura", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string agregarFactura(string _proveedor, string _facturaserie, string _facturanumero, string _fechafactura, string _descripcion, decimal _monto, string _iddetalle, int _typeStaff, string _usuariooracle) {
+        public string agregarFactura(string _proveedor, string _facturaserie, string _facturanumero, string _fechafactura, string _descripcion, decimal _monto, string _iddetalle, int _typeStaff, string _usuariooracle, string _noTramite) {
             object[] results = this.Invoke("agregarFactura", new object[] {
                         _proveedor,
                         _facturaserie,
@@ -95,17 +100,18 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
                         _monto,
                         _iddetalle,
                         _typeStaff,
-                        _usuariooracle});
+                        _usuariooracle,
+                        _noTramite});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void agregarFacturaAsync(string _proveedor, string _facturaserie, string _facturanumero, string _fechafactura, string _descripcion, decimal _monto, string _iddetalle, int _typeStaff, string _usuariooracle) {
-            this.agregarFacturaAsync(_proveedor, _facturaserie, _facturanumero, _fechafactura, _descripcion, _monto, _iddetalle, _typeStaff, _usuariooracle, null);
+        public void agregarFacturaAsync(string _proveedor, string _facturaserie, string _facturanumero, string _fechafactura, string _descripcion, decimal _monto, string _iddetalle, int _typeStaff, string _usuariooracle, string _noTramite) {
+            this.agregarFacturaAsync(_proveedor, _facturaserie, _facturanumero, _fechafactura, _descripcion, _monto, _iddetalle, _typeStaff, _usuariooracle, _noTramite, null);
         }
         
         /// <remarks/>
-        public void agregarFacturaAsync(string _proveedor, string _facturaserie, string _facturanumero, string _fechafactura, string _descripcion, decimal _monto, string _iddetalle, int _typeStaff, string _usuariooracle, object userState) {
+        public void agregarFacturaAsync(string _proveedor, string _facturaserie, string _facturanumero, string _fechafactura, string _descripcion, decimal _monto, string _iddetalle, int _typeStaff, string _usuariooracle, string _noTramite, object userState) {
             if ((this.agregarFacturaOperationCompleted == null)) {
                 this.agregarFacturaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnagregarFacturaOperationCompleted);
             }
@@ -118,7 +124,8 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
                         _monto,
                         _iddetalle,
                         _typeStaff,
-                        _usuariooracle}, this.agregarFacturaOperationCompleted, userState);
+                        _usuariooracle,
+                        _noTramite}, this.agregarFacturaOperationCompleted, userState);
         }
         
         private void OnagregarFacturaOperationCompleted(object arg) {
@@ -191,6 +198,35 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/validaEsDocente", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool validaEsDocente(string _codpers) {
+            object[] results = this.Invoke("validaEsDocente", new object[] {
+                        _codpers});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void validaEsDocenteAsync(string _codpers) {
+            this.validaEsDocenteAsync(_codpers, null);
+        }
+        
+        /// <remarks/>
+        public void validaEsDocenteAsync(string _codpers, object userState) {
+            if ((this.validaEsDocenteOperationCompleted == null)) {
+                this.validaEsDocenteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnvalidaEsDocenteOperationCompleted);
+            }
+            this.InvokeAsync("validaEsDocente", new object[] {
+                        _codpers}, this.validaEsDocenteOperationCompleted, userState);
+        }
+        
+        private void OnvalidaEsDocenteOperationCompleted(object arg) {
+            if ((this.validaEsDocenteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.validaEsDocenteCompleted(this, new validaEsDocenteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -210,11 +246,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void agregarFacturaCompletedEventHandler(object sender, agregarFacturaCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class agregarFacturaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -236,11 +272,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void validarFacturaCompletedEventHandler(object sender, validarFacturaCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class validarFacturaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -262,11 +298,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void infoBancariaDocenteCompletedEventHandler(object sender, infoBancariaDocenteCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class infoBancariaDocenteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -283,6 +319,32 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((System.Data.DataTable)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void validaEsDocenteCompletedEventHandler(object sender, validaEsDocenteCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class validaEsDocenteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal validaEsDocenteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
             }
         }
     }

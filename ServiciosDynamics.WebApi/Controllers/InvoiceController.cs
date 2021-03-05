@@ -45,7 +45,8 @@ namespace ServiciosDynamics.WebApi.Controllers
                     Convert.ToDecimal(invoiceData.monto),
                     invoiceData.id_detalle,
                     invoiceData.type_staff,
-                    invoiceData.usuario_oracle
+                    invoiceData.usuario_oracle,
+                    (invoiceData.no_tramite == null ? "" : invoiceData.no_tramite )
                     );
 
                 if(ret == "Correcto")
@@ -131,6 +132,37 @@ namespace ServiciosDynamics.WebApi.Controllers
                 lst.Add(c);
             }
             return lst;
+
+        }
+
+
+        /// <summary>
+        /// retorna si es docente o no
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("esdocente")]
+        public IHttpActionResult esDocente([FromUri] string codpers)
+        {
+            try
+            {
+                if (codpers == "" || codpers == null)
+                {
+                    throw new Exception("Error en los parametros");
+                }
+
+                WSFacturas.WSFacturas ws = new WSFacturas.WSFacturas();
+
+                bool ret = ws.validaEsDocente(
+                    codpers
+                    );
+
+                return Ok(ret);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
 
         }
     }

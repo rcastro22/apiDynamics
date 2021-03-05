@@ -26,7 +26,7 @@ namespace ServiciosDynamics.WebApi.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://srvdynamicsdesa/ws/WSFacturas.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.0.3.71/ws/WSFacturas.asmx")]
         public string ServiciosDynamics_WebApi_WSFacturas_WSFacturas {
             get {
                 return ((string)(this["ServiciosDynamics_WebApi_WSFacturas_WSFacturas"]));
