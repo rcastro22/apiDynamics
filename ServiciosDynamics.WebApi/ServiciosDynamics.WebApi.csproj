@@ -169,6 +169,8 @@
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
+    <Compile Include="Controllers\LibraryController.cs" />
+    <Compile Include="Controllers\TipoCambioController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -180,11 +182,23 @@
     <Compile Include="Models\Invoice\InfoBancariaDocente_Result.cs" />
     <Compile Include="Models\Invoice\ValidInvoiceModel.cs" />
     <Compile Include="Models\Invoice\InvoiceModel.cs" />
+    <Compile Include="Models\Library\ReciboModel.cs" />
+    <Compile Include="Models\Library\CarneModel.cs" />
+    <Compile Include="Models\Library\DatosReciboModel.cs" />
+    <Compile Include="Models\Library\DetalleLibrosModel.cs" />
+    <Compile Include="Models\Library\CursosAsig.cs" />
+    <Compile Include="Models\Library\InfoAlumnoLibreria_Result.cs" />
+    <Compile Include="Models\TipoCambio\FechaInicialMonedaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\TipoCambio\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\WSDGArchivo\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -197,6 +211,11 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\WSFacturas\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WSLibreria\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -243,10 +262,22 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web References\TipoCambio\DataVariable.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\TipoCambio\InfoVariable.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\TipoCambio\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\TipoCambio\TipoCambio.disco" />
     <Content Include="Web References\WSDGArchivo\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
+    <None Include="Web References\TipoCambio\TipoCambio.wsdl" />
     <None Include="Web References\WSDGArchivo\WSDGArchivo.wsdl" />
     <None Include="Web References\WSEmpleados\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -260,6 +291,11 @@
     <None Include="Web References\WSFacturas\WSFacturas.disco" />
     <None Include="Web References\WSDGArchivo\WSDGArchivo.disco" />
     <None Include="Web References\WSEmpleados\WSEmpleados.disco" />
+    <None Include="Web References\WSLibreria\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WSLibreria\WSLibreria.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -277,6 +313,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="Web References\WSFacturas\WSFacturas.wsdl" />
+    <None Include="Web References\WSLibreria\WSLibreria.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -317,6 +354,17 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:13826/WSLibreria.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WSLibreria\</RelPath>
+      <UpdateFromURL>http://localhost:13826/WSLibreria.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ServiciosDynamics_WebApi_WSLibreria_WSLibreria</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://srvdynamicsdesa/ws/WSDGArchivo.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WSDGArchivo\</RelPath>
@@ -349,6 +397,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>ServiciosDynamics_WebApi_WSFacturas_WSFacturas</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://www.banguat.gob.gt/variables/ws/TipoCambio.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\TipoCambio\</RelPath>
+      <UpdateFromURL>http://www.banguat.gob.gt/variables/ws/TipoCambio.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ServiciosDynamics_WebApi_TipoCambio_TipoCambio</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>

@@ -52,5 +52,25 @@ namespace ServiciosDynamics.WebApi.Properties {
                 return ((string)(this["ServiciosDynamics_WebApi_WSEmpleados_WSEmpleados"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:13826/WSLibreria.asmx")]
+        public string ServiciosDynamics_WebApi_WSLibreria_WSLibreria {
+            get {
+                return ((string)(this["ServiciosDynamics_WebApi_WSLibreria_WSLibreria"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.banguat.gob.gt/variables/ws/TipoCambio.asmx")]
+        public string ServiciosDynamics_WebApi_TipoCambio_TipoCambio {
+            get {
+                return ((string)(this["ServiciosDynamics_WebApi_TipoCambio_TipoCambio"]));
+            }
+        }
     }
 }
