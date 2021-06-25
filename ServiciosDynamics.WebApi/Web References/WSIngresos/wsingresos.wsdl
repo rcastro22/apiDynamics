@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ingresos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_origen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_fromDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_toDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ingresosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ingresosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ingresos_conceptos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_recibo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_fecha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_tipo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ingresos_conceptosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ingresos_conceptosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertHingresos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_recibo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_fecha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_tipo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertHingresosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertHingresosResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertHingresos_Conceptos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_recibo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_fecha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_tipo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertHingresos_ConceptosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertHingresos_ConceptosResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertHingresos_pago">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_recibo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_fecha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_tipo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertHingresos_pagoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertHingresos_pagoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteIngresos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_recibo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_fecha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_tipo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteIngresosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deleteIngresosResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteIngresos_Conceptos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_recibo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_fecha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_tipo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteIngresos_ConceptosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deleteIngresos_ConceptosResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteIngresos_pago">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_recibo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_fecha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_tipo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteIngresos_pagoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deleteIngresos_pagoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="countIngresos_conceptos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_origen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_fromDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_toDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="countIngresos_conceptosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countIngresos_conceptosResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="countIngresos_pago">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_origen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_fromDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_toDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="countIngresos_pagoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countIngresos_pagoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="countIngresos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_origen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_fromDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_toDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="countIngresosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countIngresosResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="carrerasFaltantes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_origen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_fromDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_toDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="carrerasFaltantesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="carrerasFaltantesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="conceptosFaltantes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_origen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_fromDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_toDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="conceptosFaltantesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conceptosFaltantesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ingresosSoapIn">
+    <wsdl:part name="parameters" element="tns:ingresos" />
+  </wsdl:message>
+  <wsdl:message name="ingresosSoapOut">
+    <wsdl:part name="parameters" element="tns:ingresosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ingresos_conceptosSoapIn">
+    <wsdl:part name="parameters" element="tns:ingresos_conceptos" />
+  </wsdl:message>
+  <wsdl:message name="ingresos_conceptosSoapOut">
+    <wsdl:part name="parameters" element="tns:ingresos_conceptosResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertHingresosSoapIn">
+    <wsdl:part name="parameters" element="tns:insertHingresos" />
+  </wsdl:message>
+  <wsdl:message name="insertHingresosSoapOut">
+    <wsdl:part name="parameters" element="tns:insertHingresosResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertHingresos_ConceptosSoapIn">
+    <wsdl:part name="parameters" element="tns:insertHingresos_Conceptos" />
+  </wsdl:message>
+  <wsdl:message name="insertHingresos_ConceptosSoapOut">
+    <wsdl:part name="parameters" element="tns:insertHingresos_ConceptosResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertHingresos_pagoSoapIn">
+    <wsdl:part name="parameters" element="tns:insertHingresos_pago" />
+  </wsdl:message>
+  <wsdl:message name="insertHingresos_pagoSoapOut">
+    <wsdl:part name="parameters" element="tns:insertHingresos_pagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteIngresosSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteIngresos" />
+  </wsdl:message>
+  <wsdl:message name="deleteIngresosSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteIngresosResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteIngresos_ConceptosSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteIngresos_Conceptos" />
+  </wsdl:message>
+  <wsdl:message name="deleteIngresos_ConceptosSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteIngresos_ConceptosResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteIngresos_pagoSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteIngresos_pago" />
+  </wsdl:message>
+  <wsdl:message name="deleteIngresos_pagoSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteIngresos_pagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="countIngresos_conceptosSoapIn">
+    <wsdl:part name="parameters" element="tns:countIngresos_conceptos" />
+  </wsdl:message>
+  <wsdl:message name="countIngresos_conceptosSoapOut">
+    <wsdl:part name="parameters" element="tns:countIngresos_conceptosResponse" />
+  </wsdl:message>
+  <wsdl:message name="countIngresos_pagoSoapIn">
+    <wsdl:part name="parameters" element="tns:countIngresos_pago" />
+  </wsdl:message>
+  <wsdl:message name="countIngresos_pagoSoapOut">
+    <wsdl:part name="parameters" element="tns:countIngresos_pagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="countIngresosSoapIn">
+    <wsdl:part name="parameters" element="tns:countIngresos" />
+  </wsdl:message>
+  <wsdl:message name="countIngresosSoapOut">
+    <wsdl:part name="parameters" element="tns:countIngresosResponse" />
+  </wsdl:message>
+  <wsdl:message name="carrerasFaltantesSoapIn">
+    <wsdl:part name="parameters" element="tns:carrerasFaltantes" />
+  </wsdl:message>
+  <wsdl:message name="carrerasFaltantesSoapOut">
+    <wsdl:part name="parameters" element="tns:carrerasFaltantesResponse" />
+  </wsdl:message>
+  <wsdl:message name="conceptosFaltantesSoapIn">
+    <wsdl:part name="parameters" element="tns:conceptosFaltantes" />
+  </wsdl:message>
+  <wsdl:message name="conceptosFaltantesSoapOut">
+    <wsdl:part name="parameters" element="tns:conceptosFaltantesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSIngresosSoap">
+    <wsdl:operation name="ingresos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los registros de la tabla INGRESOS</wsdl:documentation>
+      <wsdl:input message="tns:ingresosSoapIn" />
+      <wsdl:output message="tns:ingresosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ingresos_conceptos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los registros de la tabla INGRESOS_CONCEPTOS</wsdl:documentation>
+      <wsdl:input message="tns:ingresos_conceptosSoapIn" />
+      <wsdl:output message="tns:ingresos_conceptosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertHingresos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta registros en la tabla HINGRESOS</wsdl:documentation>
+      <wsdl:input message="tns:insertHingresosSoapIn" />
+      <wsdl:output message="tns:insertHingresosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertHingresos_Conceptos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta registros en la tabla HINGRESOS_CONCEPTOS</wsdl:documentation>
+      <wsdl:input message="tns:insertHingresos_ConceptosSoapIn" />
+      <wsdl:output message="tns:insertHingresos_ConceptosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertHingresos_pago">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta registros en la tabla HINGRESOS_PAGO</wsdl:documentation>
+      <wsdl:input message="tns:insertHingresos_pagoSoapIn" />
+      <wsdl:output message="tns:insertHingresos_pagoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteIngresos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Elimina registros en la tabla INGRESOS</wsdl:documentation>
+      <wsdl:input message="tns:deleteIngresosSoapIn" />
+      <wsdl:output message="tns:deleteIngresosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteIngresos_Conceptos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Elimina registros en la tabla INGRESOS_CONCEPTOS</wsdl:documentation>
+      <wsdl:input message="tns:deleteIngresos_ConceptosSoapIn" />
+      <wsdl:output message="tns:deleteIngresos_ConceptosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteIngresos_pago">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Elimina registros en la tabla INGRESOS_PAGO</wsdl:documentation>
+      <wsdl:input message="tns:deleteIngresos_pagoSoapIn" />
+      <wsdl:output message="tns:deleteIngresos_pagoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="countIngresos_conceptos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cuenta registros en la tabla INGRESOS_CONCEPTOS</wsdl:documentation>
+      <wsdl:input message="tns:countIngresos_conceptosSoapIn" />
+      <wsdl:output message="tns:countIngresos_conceptosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="countIngresos_pago">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cuenta registros en la tabla INGRESOS_PAGO</wsdl:documentation>
+      <wsdl:input message="tns:countIngresos_pagoSoapIn" />
+      <wsdl:output message="tns:countIngresos_pagoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="countIngresos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cuenta registros en la tabla INGRESOS</wsdl:documentation>
+      <wsdl:input message="tns:countIngresosSoapIn" />
+      <wsdl:output message="tns:countIngresosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="carrerasFaltantes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Listado de carreras que estan en Oracle pero no en dynamics para UG: Fecha:dd/MM/YYYY</wsdl:documentation>
+      <wsdl:input message="tns:carrerasFaltantesSoapIn" />
+      <wsdl:output message="tns:carrerasFaltantesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="conceptosFaltantes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Listado de carreras que estan en Oracle pero no en dynamics para UG: Fecha:dd/MM/YYYY</wsdl:documentation>
+      <wsdl:input message="tns:conceptosFaltantesSoapIn" />
+      <wsdl:output message="tns:conceptosFaltantesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSIngresosSoap" type="tns:WSIngresosSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ingresos">
+      <soap:operation soapAction="http://tempuri.org/ingresos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ingresos_conceptos">
+      <soap:operation soapAction="http://tempuri.org/ingresos_conceptos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertHingresos">
+      <soap:operation soapAction="http://tempuri.org/insertHingresos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertHingresos_Conceptos">
+      <soap:operation soapAction="http://tempuri.org/insertHingresos_Conceptos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertHingresos_pago">
+      <soap:operation soapAction="http://tempuri.org/insertHingresos_pago" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteIngresos">
+      <soap:operation soapAction="http://tempuri.org/deleteIngresos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteIngresos_Conceptos">
+      <soap:operation soapAction="http://tempuri.org/deleteIngresos_Conceptos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteIngresos_pago">
+      <soap:operation soapAction="http://tempuri.org/deleteIngresos_pago" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="countIngresos_conceptos">
+      <soap:operation soapAction="http://tempuri.org/countIngresos_conceptos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="countIngresos_pago">
+      <soap:operation soapAction="http://tempuri.org/countIngresos_pago" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="countIngresos">
+      <soap:operation soapAction="http://tempuri.org/countIngresos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="carrerasFaltantes">
+      <soap:operation soapAction="http://tempuri.org/carrerasFaltantes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="conceptosFaltantes">
+      <soap:operation soapAction="http://tempuri.org/conceptosFaltantes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSIngresosSoap12" type="tns:WSIngresosSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ingresos">
+      <soap12:operation soapAction="http://tempuri.org/ingresos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ingresos_conceptos">
+      <soap12:operation soapAction="http://tempuri.org/ingresos_conceptos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertHingresos">
+      <soap12:operation soapAction="http://tempuri.org/insertHingresos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertHingresos_Conceptos">
+      <soap12:operation soapAction="http://tempuri.org/insertHingresos_Conceptos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertHingresos_pago">
+      <soap12:operation soapAction="http://tempuri.org/insertHingresos_pago" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteIngresos">
+      <soap12:operation soapAction="http://tempuri.org/deleteIngresos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteIngresos_Conceptos">
+      <soap12:operation soapAction="http://tempuri.org/deleteIngresos_Conceptos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteIngresos_pago">
+      <soap12:operation soapAction="http://tempuri.org/deleteIngresos_pago" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="countIngresos_conceptos">
+      <soap12:operation soapAction="http://tempuri.org/countIngresos_conceptos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="countIngresos_pago">
+      <soap12:operation soapAction="http://tempuri.org/countIngresos_pago" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="countIngresos">
+      <soap12:operation soapAction="http://tempuri.org/countIngresos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="carrerasFaltantes">
+      <soap12:operation soapAction="http://tempuri.org/carrerasFaltantes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="conceptosFaltantes">
+      <soap12:operation soapAction="http://tempuri.org/conceptosFaltantes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSIngresos">
+    <wsdl:port name="WSIngresosSoap" binding="tns:WSIngresosSoap">
+      <soap:address location="http://10.0.3.71/ws/wsingresos.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSIngresosSoap12" binding="tns:WSIngresosSoap12">
+      <soap12:address location="http://10.0.3.71/ws/wsingresos.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -36,7 +36,7 @@ namespace ServiciosDynamics.WebApi.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://srvdynamicsdesa/ws/WSDGArchivo.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.0.3.75/ws/WSDGArchivo.asmx")]
         public string ServiciosDynamics_WebApi_WSDGArchivo_WSDGArchivo {
             get {
                 return ((string)(this["ServiciosDynamics_WebApi_WSDGArchivo_WSDGArchivo"]));
@@ -70,6 +70,26 @@ namespace ServiciosDynamics.WebApi.Properties {
         public string ServiciosDynamics_WebApi_TipoCambio_TipoCambio {
             get {
                 return ((string)(this["ServiciosDynamics_WebApi_TipoCambio_TipoCambio"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.0.3.71/ws/wsingresos.asmx")]
+        public string ServiciosDynamics_WebApi_WSIngresos_WSIngresos {
+            get {
+                return ((string)(this["ServiciosDynamics_WebApi_WSIngresos_WSIngresos"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.0.3.71/ws/wsinterfacedynamics.asmx")]
+        public string ServiciosDynamics_WebApi_WSInterfaceDyn_WSInterfaceDynamics {
+            get {
+                return ((string)(this["ServiciosDynamics_WebApi_WSInterfaceDyn_WSInterfaceDynamics"]));
             }
         }
     }

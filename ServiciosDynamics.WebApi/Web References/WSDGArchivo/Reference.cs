@@ -23,13 +23,15 @@ namespace ServiciosDynamics.WebApi.WSDGArchivo {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="WSDGArchivoSoap", Namespace="http://tempuri.org/")]
     public partial class WSDGArchivo : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback obtenerIdArchivoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SubirArchivoOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -73,6 +75,9 @@ namespace ServiciosDynamics.WebApi.WSDGArchivo {
         public event obtenerIdArchivoCompletedEventHandler obtenerIdArchivoCompleted;
         
         /// <remarks/>
+        public event SubirArchivoCompletedEventHandler SubirArchivoCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/obtenerIdArchivo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string obtenerIdArchivo(string _application, int _category, string _labels) {
             object[] results = this.Invoke("obtenerIdArchivo", new object[] {
@@ -106,6 +111,35 @@ namespace ServiciosDynamics.WebApi.WSDGArchivo {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SubirArchivo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string SubirArchivo(string _nombreArchivo) {
+            object[] results = this.Invoke("SubirArchivo", new object[] {
+                        _nombreArchivo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SubirArchivoAsync(string _nombreArchivo) {
+            this.SubirArchivoAsync(_nombreArchivo, null);
+        }
+        
+        /// <remarks/>
+        public void SubirArchivoAsync(string _nombreArchivo, object userState) {
+            if ((this.SubirArchivoOperationCompleted == null)) {
+                this.SubirArchivoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSubirArchivoOperationCompleted);
+            }
+            this.InvokeAsync("SubirArchivo", new object[] {
+                        _nombreArchivo}, this.SubirArchivoOperationCompleted, userState);
+        }
+        
+        private void OnSubirArchivoOperationCompleted(object arg) {
+            if ((this.SubirArchivoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SubirArchivoCompleted(this, new SubirArchivoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -125,11 +159,11 @@ namespace ServiciosDynamics.WebApi.WSDGArchivo {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void obtenerIdArchivoCompletedEventHandler(object sender, obtenerIdArchivoCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class obtenerIdArchivoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -137,6 +171,32 @@ namespace ServiciosDynamics.WebApi.WSDGArchivo {
         private object[] results;
         
         internal obtenerIdArchivoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void SubirArchivoCompletedEventHandler(object sender, SubirArchivoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SubirArchivoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SubirArchivoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

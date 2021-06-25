@@ -44,5 +44,33 @@ namespace ServiciosDynamics.WebApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+
+        /// <summary>
+        /// Subir archivo de sanciones
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("cargar_sancion")]
+        public IHttpActionResult subirArchivoSanciones([FromUri] SubirSancionModel archivoData)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                WSDGArchivo.WSDGArchivo ws = new WSDGArchivo.WSDGArchivo();
+
+                string ret = ws.SubirArchivo(archivoData.nombre_archivo);
+
+                return Ok(ret);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

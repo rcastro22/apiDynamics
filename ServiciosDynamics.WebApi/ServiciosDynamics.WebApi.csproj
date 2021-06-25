@@ -168,6 +168,7 @@
     <Compile Include="Controllers\DGArchivoController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IngresosController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\LibraryController.cs" />
     <Compile Include="Controllers\TipoCambioController.cs" />
@@ -175,10 +176,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DG\SubirSancionModel.cs" />
     <Compile Include="Models\DG\DGArchivoModel.cs" />
     <Compile Include="Models\Employees\EmplTableModel.cs" />
     <Compile Include="Models\Employees\Familiares.cs" />
+    <Compile Include="Models\Ingresos\ConceptoFaltante_Result.cs" />
+    <Compile Include="Models\Ingresos\IngresosConceptos_Result.cs" />
+    <Compile Include="Models\Ingresos\IngresosConceptosModel.cs" />
+    <Compile Include="Models\Ingresos\Ingresos_Result.cs" />
+    <Compile Include="Models\Ingresos\IngresosModel.cs" />
+    <Compile Include="Models\Invoice\InfoPagoDetalle_Result.cs" />
+    <Compile Include="Models\Invoice\InfoPagoFacturacion_Result.cs" />
+    <Compile Include="Models\Invoice\CarreraFaltante_Result.cs" />
     <Compile Include="Models\Invoice\CodpersModel.cs" />
+    <Compile Include="Models\Invoice\CatedraticoFaltante_Result.cs" />
     <Compile Include="Models\Invoice\InfoBancariaDocente_Result.cs" />
     <Compile Include="Models\Invoice\ValidInvoiceModel.cs" />
     <Compile Include="Models\Invoice\InvoiceModel.cs" />
@@ -211,6 +222,16 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\WSFacturas\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WSIngresos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WSInterfaceDyn\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -273,10 +294,10 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
     <None Include="Web References\TipoCambio\TipoCambio.disco" />
-    <Content Include="Web References\WSDGArchivo\Reference.map">
+    <None Include="Web References\WSDGArchivo\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Web References\TipoCambio\TipoCambio.wsdl" />
     <None Include="Web References\WSDGArchivo\WSDGArchivo.wsdl" />
     <None Include="Web References\WSEmpleados\Reference.map">
@@ -291,11 +312,26 @@
     <None Include="Web References\WSFacturas\WSFacturas.disco" />
     <None Include="Web References\WSDGArchivo\WSDGArchivo.disco" />
     <None Include="Web References\WSEmpleados\WSEmpleados.disco" />
+    <None Include="Web References\WSIngresos\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WSIngresos\wsingresos.wsdl" />
+    <Content Include="Web References\WSInterfaceDyn\DocenteDAX.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WSInterfaceDyn\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\WSInterfaceDyn\wsinterfacedynamics.wsdl" />
     <None Include="Web References\WSLibreria\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\WSLibreria\WSLibreria.disco" />
+    <None Include="Web References\WSIngresos\wsingresos.disco" />
+    <None Include="Web References\WSInterfaceDyn\wsinterfacedynamics.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -354,6 +390,28 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://10.0.3.71/ws/wsingresos.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WSIngresos\</RelPath>
+      <UpdateFromURL>http://10.0.3.71/ws/wsingresos.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ServiciosDynamics_WebApi_WSIngresos_WSIngresos</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://10.0.3.71/ws/wsinterfacedynamics.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WSInterfaceDyn\</RelPath>
+      <UpdateFromURL>http://10.0.3.71/ws/wsinterfacedynamics.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ServiciosDynamics_WebApi_WSInterfaceDyn_WSInterfaceDynamics</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:13826/WSLibreria.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WSLibreria\</RelPath>
@@ -365,10 +423,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>ServiciosDynamics_WebApi_WSLibreria_WSLibreria</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://srvdynamicsdesa/ws/WSDGArchivo.asmx">
+    <WebReferenceUrl Include="http://10.0.3.75/ws/WSDGArchivo.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WSDGArchivo\</RelPath>
-      <UpdateFromURL>http://srvdynamicsdesa/ws/WSDGArchivo.asmx</UpdateFromURL>
+      <UpdateFromURL>http://10.0.3.75/ws/WSDGArchivo.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

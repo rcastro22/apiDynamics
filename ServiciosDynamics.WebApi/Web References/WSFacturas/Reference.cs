@@ -38,6 +38,18 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         
         private System.Threading.SendOrPostCallback validaEsDocenteOperationCompleted;
         
+        private System.Threading.SendOrPostCallback infoPagoFacturacionOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback infoPagoDetalleOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback insertHpagosOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback insertHpagosUgaDetalleOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback deletePagosUgaDetalleOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback deletePagosUgaOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -87,6 +99,24 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         
         /// <remarks/>
         public event validaEsDocenteCompletedEventHandler validaEsDocenteCompleted;
+        
+        /// <remarks/>
+        public event infoPagoFacturacionCompletedEventHandler infoPagoFacturacionCompleted;
+        
+        /// <remarks/>
+        public event infoPagoDetalleCompletedEventHandler infoPagoDetalleCompleted;
+        
+        /// <remarks/>
+        public event insertHpagosCompletedEventHandler insertHpagosCompleted;
+        
+        /// <remarks/>
+        public event insertHpagosUgaDetalleCompletedEventHandler insertHpagosUgaDetalleCompleted;
+        
+        /// <remarks/>
+        public event deletePagosUgaDetalleCompletedEventHandler deletePagosUgaDetalleCompleted;
+        
+        /// <remarks/>
+        public event deletePagosUgaCompletedEventHandler deletePagosUgaCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/agregarFactura", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -227,6 +257,196 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/infoPagoFacturacion", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataTable infoPagoFacturacion(string _origen, string _fecha) {
+            object[] results = this.Invoke("infoPagoFacturacion", new object[] {
+                        _origen,
+                        _fecha});
+            return ((System.Data.DataTable)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void infoPagoFacturacionAsync(string _origen, string _fecha) {
+            this.infoPagoFacturacionAsync(_origen, _fecha, null);
+        }
+        
+        /// <remarks/>
+        public void infoPagoFacturacionAsync(string _origen, string _fecha, object userState) {
+            if ((this.infoPagoFacturacionOperationCompleted == null)) {
+                this.infoPagoFacturacionOperationCompleted = new System.Threading.SendOrPostCallback(this.OninfoPagoFacturacionOperationCompleted);
+            }
+            this.InvokeAsync("infoPagoFacturacion", new object[] {
+                        _origen,
+                        _fecha}, this.infoPagoFacturacionOperationCompleted, userState);
+        }
+        
+        private void OninfoPagoFacturacionOperationCompleted(object arg) {
+            if ((this.infoPagoFacturacionCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.infoPagoFacturacionCompleted(this, new infoPagoFacturacionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/infoPagoDetalle", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataTable infoPagoDetalle(string _nomina, string _correlativo) {
+            object[] results = this.Invoke("infoPagoDetalle", new object[] {
+                        _nomina,
+                        _correlativo});
+            return ((System.Data.DataTable)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void infoPagoDetalleAsync(string _nomina, string _correlativo) {
+            this.infoPagoDetalleAsync(_nomina, _correlativo, null);
+        }
+        
+        /// <remarks/>
+        public void infoPagoDetalleAsync(string _nomina, string _correlativo, object userState) {
+            if ((this.infoPagoDetalleOperationCompleted == null)) {
+                this.infoPagoDetalleOperationCompleted = new System.Threading.SendOrPostCallback(this.OninfoPagoDetalleOperationCompleted);
+            }
+            this.InvokeAsync("infoPagoDetalle", new object[] {
+                        _nomina,
+                        _correlativo}, this.infoPagoDetalleOperationCompleted, userState);
+        }
+        
+        private void OninfoPagoDetalleOperationCompleted(object arg) {
+            if ((this.infoPagoDetalleCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.infoPagoDetalleCompleted(this, new infoPagoDetalleCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/insertHpagos", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int insertHpagos(string _nomina, string _correlativo) {
+            object[] results = this.Invoke("insertHpagos", new object[] {
+                        _nomina,
+                        _correlativo});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void insertHpagosAsync(string _nomina, string _correlativo) {
+            this.insertHpagosAsync(_nomina, _correlativo, null);
+        }
+        
+        /// <remarks/>
+        public void insertHpagosAsync(string _nomina, string _correlativo, object userState) {
+            if ((this.insertHpagosOperationCompleted == null)) {
+                this.insertHpagosOperationCompleted = new System.Threading.SendOrPostCallback(this.OninsertHpagosOperationCompleted);
+            }
+            this.InvokeAsync("insertHpagos", new object[] {
+                        _nomina,
+                        _correlativo}, this.insertHpagosOperationCompleted, userState);
+        }
+        
+        private void OninsertHpagosOperationCompleted(object arg) {
+            if ((this.insertHpagosCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.insertHpagosCompleted(this, new insertHpagosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/insertHpagosUgaDetalle", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int insertHpagosUgaDetalle(string _nomina, string _correlativo, string _carrera) {
+            object[] results = this.Invoke("insertHpagosUgaDetalle", new object[] {
+                        _nomina,
+                        _correlativo,
+                        _carrera});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void insertHpagosUgaDetalleAsync(string _nomina, string _correlativo, string _carrera) {
+            this.insertHpagosUgaDetalleAsync(_nomina, _correlativo, _carrera, null);
+        }
+        
+        /// <remarks/>
+        public void insertHpagosUgaDetalleAsync(string _nomina, string _correlativo, string _carrera, object userState) {
+            if ((this.insertHpagosUgaDetalleOperationCompleted == null)) {
+                this.insertHpagosUgaDetalleOperationCompleted = new System.Threading.SendOrPostCallback(this.OninsertHpagosUgaDetalleOperationCompleted);
+            }
+            this.InvokeAsync("insertHpagosUgaDetalle", new object[] {
+                        _nomina,
+                        _correlativo,
+                        _carrera}, this.insertHpagosUgaDetalleOperationCompleted, userState);
+        }
+        
+        private void OninsertHpagosUgaDetalleOperationCompleted(object arg) {
+            if ((this.insertHpagosUgaDetalleCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.insertHpagosUgaDetalleCompleted(this, new insertHpagosUgaDetalleCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/deletePagosUgaDetalle", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int deletePagosUgaDetalle(string _nomina, string _correlativo, string _carrera) {
+            object[] results = this.Invoke("deletePagosUgaDetalle", new object[] {
+                        _nomina,
+                        _correlativo,
+                        _carrera});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void deletePagosUgaDetalleAsync(string _nomina, string _correlativo, string _carrera) {
+            this.deletePagosUgaDetalleAsync(_nomina, _correlativo, _carrera, null);
+        }
+        
+        /// <remarks/>
+        public void deletePagosUgaDetalleAsync(string _nomina, string _correlativo, string _carrera, object userState) {
+            if ((this.deletePagosUgaDetalleOperationCompleted == null)) {
+                this.deletePagosUgaDetalleOperationCompleted = new System.Threading.SendOrPostCallback(this.OndeletePagosUgaDetalleOperationCompleted);
+            }
+            this.InvokeAsync("deletePagosUgaDetalle", new object[] {
+                        _nomina,
+                        _correlativo,
+                        _carrera}, this.deletePagosUgaDetalleOperationCompleted, userState);
+        }
+        
+        private void OndeletePagosUgaDetalleOperationCompleted(object arg) {
+            if ((this.deletePagosUgaDetalleCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.deletePagosUgaDetalleCompleted(this, new deletePagosUgaDetalleCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/deletePagosUga", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int deletePagosUga(string _nomina, string _correlativo) {
+            object[] results = this.Invoke("deletePagosUga", new object[] {
+                        _nomina,
+                        _correlativo});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void deletePagosUgaAsync(string _nomina, string _correlativo) {
+            this.deletePagosUgaAsync(_nomina, _correlativo, null);
+        }
+        
+        /// <remarks/>
+        public void deletePagosUgaAsync(string _nomina, string _correlativo, object userState) {
+            if ((this.deletePagosUgaOperationCompleted == null)) {
+                this.deletePagosUgaOperationCompleted = new System.Threading.SendOrPostCallback(this.OndeletePagosUgaOperationCompleted);
+            }
+            this.InvokeAsync("deletePagosUga", new object[] {
+                        _nomina,
+                        _correlativo}, this.deletePagosUgaOperationCompleted, userState);
+        }
+        
+        private void OndeletePagosUgaOperationCompleted(object arg) {
+            if ((this.deletePagosUgaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.deletePagosUgaCompleted(this, new deletePagosUgaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -345,6 +565,162 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void infoPagoFacturacionCompletedEventHandler(object sender, infoPagoFacturacionCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class infoPagoFacturacionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal infoPagoFacturacionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataTable Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataTable)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void infoPagoDetalleCompletedEventHandler(object sender, infoPagoDetalleCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class infoPagoDetalleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal infoPagoDetalleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataTable Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataTable)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void insertHpagosCompletedEventHandler(object sender, insertHpagosCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class insertHpagosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal insertHpagosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void insertHpagosUgaDetalleCompletedEventHandler(object sender, insertHpagosUgaDetalleCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class insertHpagosUgaDetalleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal insertHpagosUgaDetalleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void deletePagosUgaDetalleCompletedEventHandler(object sender, deletePagosUgaDetalleCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class deletePagosUgaDetalleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal deletePagosUgaDetalleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void deletePagosUgaCompletedEventHandler(object sender, deletePagosUgaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class deletePagosUgaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal deletePagosUgaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
             }
         }
     }

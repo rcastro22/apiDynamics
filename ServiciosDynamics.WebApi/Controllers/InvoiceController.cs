@@ -165,5 +165,187 @@ namespace ServiciosDynamics.WebApi.Controllers
             }
 
         }
+
+
+        /// <summary>
+        /// Retorna los catedraticos que no estan configurados en Dynamics
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("catedraticos_faltantes")]
+        public IEnumerable<CatedraticoFaltante_Result> CatedraticosFaltantes([FromUri] string origen, string fecha)
+        {
+            List<CatedraticoFaltante_Result> lst = new List<CatedraticoFaltante_Result>();
+
+            if ((origen == "" || origen == null) && (fecha == "" || fecha == null))
+            {
+                throw new Exception("Error en los parametros");
+            }
+
+            WSInterfaceDyn.WSInterfaceDynamics ws = new WSInterfaceDyn.WSInterfaceDynamics();
+            DataTable ret = ws.CatedrativosFaltantesUG(fecha, origen).Tables[0];
+            DataTableReader dr = ret.CreateDataReader();
+
+            while (dr.Read())
+            {
+                CatedraticoFaltante_Result c = new CatedraticoFaltante_Result();
+
+                c.catedratico = Convert.ToString(dr["CATEDRATICO"]);
+                c.nombre = Convert.ToString(dr["NOMBRE"]);
+
+                lst.Add(c);
+            }
+            return lst;
+
+        }
+
+        /// <summary>
+        /// Retorna las carreras que no estan configuradas en Dynamics
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("carreras_faltantes")]
+        public IEnumerable<CarreraFaltante_Result> CarrerasFaltantes([FromUri] string origen, string fecha)
+        {
+            List<CarreraFaltante_Result> lst = new List<CarreraFaltante_Result>();
+
+            if ((origen == "" || origen == null) && (fecha == "" || fecha == null))
+            {
+                throw new Exception("Error en los parametros");
+            }
+
+            WSInterfaceDyn.WSInterfaceDynamics ws = new WSInterfaceDyn.WSInterfaceDynamics();
+            DataTable ret = ws.CarrerasFaltantesUG(fecha, origen).Tables[0];
+            DataTableReader dr = ret.CreateDataReader();
+
+            while (dr.Read())
+            {
+                CarreraFaltante_Result c = new CarreraFaltante_Result();
+
+                c.carrera = Convert.ToString(dr["CARRERA"]);
+
+                lst.Add(c);
+            }
+            return lst;
+
+        }
+
+
+        /// <summary>
+        /// Informacion de Pagos por Facturacion
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("info_pago_facturacion")]
+        public IEnumerable<InfoPagoFacturacion_Result> InfoPagosFacturacion([FromUri] string origen, string fecha)
+        {
+            List<InfoPagoFacturacion_Result> lst = new List<InfoPagoFacturacion_Result>();
+
+            if ((origen == "" || origen == null) && (fecha == "" || fecha == null))
+            {
+                throw new Exception("Error en los parametros");
+            }
+
+            WSFacturas.WSFacturas ws = new WSFacturas.WSFacturas();
+            DataTable ret = ws.infoPagoFacturacion(origen, fecha);
+            DataTableReader dr = ret.CreateDataReader();
+
+            DataTable ret2;
+            DataTableReader dr2;
+
+            while (dr.Read())
+            {
+                InfoPagoFacturacion_Result c = new InfoPagoFacturacion_Result();
+
+                c.CATEDRATICO = Convert.ToString(dr["CATEDRATICO"]);
+                c.REFERENCIA = Convert.ToString(dr["REFERENCIA"]);
+                c.MONTO = Convert.ToString(dr["MONTO"]);
+                c.FECHAPROVISION = Convert.ToString(dr["FECHAPROVISION"]);
+                c.FECHAPAGO = Convert.ToString(dr["FECHAPAGO"]);
+                c.NOMINA = Convert.ToString(dr["NOMINA"]);
+                c.CORRELATIVO = Convert.ToString(dr["CORRELATIVO"]);
+                c.NOMBRE = Convert.ToString(dr["NOMBRE"]);
+                c.PORTAL = Convert.ToString(dr["PORTAL"]);
+                c.FECHAIMP = Convert.ToString(dr["FECHAIMP"]);
+                c.CURSOS = Convert.ToString(dr["CURSOS"]);
+                c.ALUMNOSCURSO = Convert.ToString(dr["ALUMNOSCURSO"]);
+                c.FECHA = Convert.ToString(dr["FECHA"]);
+                c.TIPONOMINA = Convert.ToString(dr["TIPONOMINA"]);
+                c.PUESTO = Convert.ToString(dr["PUESTO"]);
+                c.ROWID = Convert.ToString(dr["ROWID"]);
+
+                ret2 = ws.infoPagoDetalle(c.NOMINA, c.CORRELATIVO);
+                dr2 = ret2.CreateDataReader();
+                List<InfoPagoDetalle_Result> lst2 = new List<InfoPagoDetalle_Result>();
+
+                while (dr2.Read())
+                {
+                    InfoPagoDetalle_Result c2 = new InfoPagoDetalle_Result();
+
+                    c2.CARRERA = Convert.ToString(dr2["CARRERA"]);
+                    c2.MONTO = Convert.ToString(dr2["MONTO"]);
+                    c2.ROWID = Convert.ToString(dr2["ROWID"]);
+
+                    lst2.Add(c2);
+                }
+                c.Detalle = lst2;
+
+                lst.Add(c);
+            }
+            return lst;
+
+        }
+
+
+        /// <summary>
+        /// Inserta Hpago
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("insert_hpago")]
+        public IHttpActionResult Insert_Hpago([FromUri] string nomina, string correlativo)
+        {
+            WSFacturas.WSFacturas ws = new WSFacturas.WSFacturas();
+            return Ok(ws.insertHpagos(nomina, correlativo));
+        }
+
+
+        /// <summary>
+        /// Inserta HpagoUgaDetalle
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("insert_hpagougadetalle")]
+        public IHttpActionResult Insert_HpagoUga_Detalle([FromUri] string nomina, string correlativo, string carrera)
+        {
+            WSFacturas.WSFacturas ws = new WSFacturas.WSFacturas();
+            return Ok(ws.insertHpagosUgaDetalle(nomina, correlativo, carrera));
+        }
+
+
+        /// <summary>
+        /// Elimina PagosUga
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("delete_pagosuga")]
+        public IHttpActionResult Delete_PagosUga([FromUri] string nomina, string correlativo)
+        {
+            WSFacturas.WSFacturas ws = new WSFacturas.WSFacturas();
+            return Ok(ws.deletePagosUga(nomina, correlativo));
+        }
+
+
+        /// <summary>
+        /// Elimina PagoUgaDetalle
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("delete_pagougadetalle")]
+        public IHttpActionResult Delete_PagoUga_Detalle([FromUri] string nomina, string correlativo, string carrera)
+        {
+            WSFacturas.WSFacturas ws = new WSFacturas.WSFacturas();
+            return Ok(ws.deletePagosUgaDetalle(nomina, correlativo, carrera));
+        }
     }
 }
