@@ -316,10 +316,10 @@ namespace ServiciosDynamics.WebApi.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("insert_hpagougadetalle")]
-        public IHttpActionResult Insert_HpagoUga_Detalle([FromUri] string nomina, string correlativo, string carrera)
+        public IHttpActionResult Insert_HpagoUga_Detalle([FromUri] string nomina, string correlativo)
         {
             WSFacturas.WSFacturas ws = new WSFacturas.WSFacturas();
-            return Ok(ws.insertHpagosUgaDetalle(nomina, correlativo, carrera));
+            return Ok(ws.insertHpagosUgaDetalle(nomina, correlativo));
         }
 
 
@@ -342,10 +342,10 @@ namespace ServiciosDynamics.WebApi.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("delete_pagougadetalle")]
-        public IHttpActionResult Delete_PagoUga_Detalle([FromUri] string nomina, string correlativo, string carrera)
+        public IHttpActionResult Delete_PagoUga_Detalle([FromUri] string nomina, string correlativo)
         {
             WSFacturas.WSFacturas ws = new WSFacturas.WSFacturas();
-            return Ok(ws.deletePagosUgaDetalle(nomina, correlativo, carrera));
+            return Ok(ws.deletePagosUgaDetalle(nomina, correlativo));
         }
     }
 }

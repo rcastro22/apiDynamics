@@ -351,28 +351,26 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/insertHpagosUgaDetalle", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int insertHpagosUgaDetalle(string _nomina, string _correlativo, string _carrera) {
+        public int insertHpagosUgaDetalle(string _nomina, string _correlativo) {
             object[] results = this.Invoke("insertHpagosUgaDetalle", new object[] {
                         _nomina,
-                        _correlativo,
-                        _carrera});
+                        _correlativo});
             return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void insertHpagosUgaDetalleAsync(string _nomina, string _correlativo, string _carrera) {
-            this.insertHpagosUgaDetalleAsync(_nomina, _correlativo, _carrera, null);
+        public void insertHpagosUgaDetalleAsync(string _nomina, string _correlativo) {
+            this.insertHpagosUgaDetalleAsync(_nomina, _correlativo, null);
         }
         
         /// <remarks/>
-        public void insertHpagosUgaDetalleAsync(string _nomina, string _correlativo, string _carrera, object userState) {
+        public void insertHpagosUgaDetalleAsync(string _nomina, string _correlativo, object userState) {
             if ((this.insertHpagosUgaDetalleOperationCompleted == null)) {
                 this.insertHpagosUgaDetalleOperationCompleted = new System.Threading.SendOrPostCallback(this.OninsertHpagosUgaDetalleOperationCompleted);
             }
             this.InvokeAsync("insertHpagosUgaDetalle", new object[] {
                         _nomina,
-                        _correlativo,
-                        _carrera}, this.insertHpagosUgaDetalleOperationCompleted, userState);
+                        _correlativo}, this.insertHpagosUgaDetalleOperationCompleted, userState);
         }
         
         private void OninsertHpagosUgaDetalleOperationCompleted(object arg) {
@@ -384,28 +382,26 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/deletePagosUgaDetalle", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int deletePagosUgaDetalle(string _nomina, string _correlativo, string _carrera) {
+        public int deletePagosUgaDetalle(string _nomina, string _correlativo) {
             object[] results = this.Invoke("deletePagosUgaDetalle", new object[] {
                         _nomina,
-                        _correlativo,
-                        _carrera});
+                        _correlativo});
             return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void deletePagosUgaDetalleAsync(string _nomina, string _correlativo, string _carrera) {
-            this.deletePagosUgaDetalleAsync(_nomina, _correlativo, _carrera, null);
+        public void deletePagosUgaDetalleAsync(string _nomina, string _correlativo) {
+            this.deletePagosUgaDetalleAsync(_nomina, _correlativo, null);
         }
         
         /// <remarks/>
-        public void deletePagosUgaDetalleAsync(string _nomina, string _correlativo, string _carrera, object userState) {
+        public void deletePagosUgaDetalleAsync(string _nomina, string _correlativo, object userState) {
             if ((this.deletePagosUgaDetalleOperationCompleted == null)) {
                 this.deletePagosUgaDetalleOperationCompleted = new System.Threading.SendOrPostCallback(this.OndeletePagosUgaDetalleOperationCompleted);
             }
             this.InvokeAsync("deletePagosUgaDetalle", new object[] {
                         _nomina,
-                        _correlativo,
-                        _carrera}, this.deletePagosUgaDetalleOperationCompleted, userState);
+                        _correlativo}, this.deletePagosUgaDetalleOperationCompleted, userState);
         }
         
         private void OndeletePagosUgaDetalleOperationCompleted(object arg) {
