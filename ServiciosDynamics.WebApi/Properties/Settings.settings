@@ -23,5 +23,8 @@
     <Setting Name="ServiciosDynamics_WebApi_WSInterfaceDyn_WSInterfaceDynamics" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://10.0.3.71/ws/wsinterfacedynamics.asmx</Value>
     </Setting>
+    <Setting Name="ServiciosDynamics_WebApi_WSRecibos_WSReceiptsGeneration" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.0.3.71/ws/wsreceiptsgeneration.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

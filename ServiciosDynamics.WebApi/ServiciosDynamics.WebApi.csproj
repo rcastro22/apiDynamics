@@ -167,6 +167,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\DGArchivoController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\GeneraReciboController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngresosController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
@@ -237,6 +238,11 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\WSLibreria\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WSRecibos\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -332,6 +338,11 @@
     <None Include="Web References\WSLibreria\WSLibreria.disco" />
     <None Include="Web References\WSIngresos\wsingresos.disco" />
     <None Include="Web References\WSInterfaceDyn\wsinterfacedynamics.disco" />
+    <Content Include="Web References\WSRecibos\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\WSRecibos\wsreceiptsgeneration.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -350,6 +361,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="Web References\WSFacturas\WSFacturas.wsdl" />
     <None Include="Web References\WSLibreria\WSLibreria.wsdl" />
+    <None Include="Web References\WSRecibos\wsreceiptsgeneration.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -411,6 +423,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>ServiciosDynamics_WebApi_WSInterfaceDyn_WSInterfaceDynamics</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://10.0.3.71/ws/wsreceiptsgeneration.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WSRecibos\</RelPath>
+      <UpdateFromURL>http://10.0.3.71/ws/wsreceiptsgeneration.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ServiciosDynamics_WebApi_WSRecibos_WSReceiptsGeneration</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:13826/WSLibreria.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>

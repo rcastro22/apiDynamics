@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="generateTransReceipt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_transId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="generateTransReceiptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="generateTransReceiptResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="generateAdvanceReceipt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_transId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="generateAdvanceReceiptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="generateAdvanceReceiptResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="generateInvoiceReceipt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_journalId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="generateInvoiceReceiptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="generateInvoiceReceiptResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="generateInvoiceAdvanceReceipt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_journalId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="generateInvoiceAdvanceReceiptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="generateInvoiceAdvanceReceiptResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerExpediente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_emplId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerExpedienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obtenerExpedienteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerRTU">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_codpers" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerRTUResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obtenerRTUResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="validaExisteBoletaTest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="boleta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="persona" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="validaExisteBoletaTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="validaExisteBoletaTestResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="generateTransReceiptSoapIn">
+    <wsdl:part name="parameters" element="tns:generateTransReceipt" />
+  </wsdl:message>
+  <wsdl:message name="generateTransReceiptSoapOut">
+    <wsdl:part name="parameters" element="tns:generateTransReceiptResponse" />
+  </wsdl:message>
+  <wsdl:message name="generateAdvanceReceiptSoapIn">
+    <wsdl:part name="parameters" element="tns:generateAdvanceReceipt" />
+  </wsdl:message>
+  <wsdl:message name="generateAdvanceReceiptSoapOut">
+    <wsdl:part name="parameters" element="tns:generateAdvanceReceiptResponse" />
+  </wsdl:message>
+  <wsdl:message name="generateInvoiceReceiptSoapIn">
+    <wsdl:part name="parameters" element="tns:generateInvoiceReceipt" />
+  </wsdl:message>
+  <wsdl:message name="generateInvoiceReceiptSoapOut">
+    <wsdl:part name="parameters" element="tns:generateInvoiceReceiptResponse" />
+  </wsdl:message>
+  <wsdl:message name="generateInvoiceAdvanceReceiptSoapIn">
+    <wsdl:part name="parameters" element="tns:generateInvoiceAdvanceReceipt" />
+  </wsdl:message>
+  <wsdl:message name="generateInvoiceAdvanceReceiptSoapOut">
+    <wsdl:part name="parameters" element="tns:generateInvoiceAdvanceReceiptResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenerExpedienteSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerExpediente" />
+  </wsdl:message>
+  <wsdl:message name="obtenerExpedienteSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerExpedienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenerRTUSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerRTU" />
+  </wsdl:message>
+  <wsdl:message name="obtenerRTUSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerRTUResponse" />
+  </wsdl:message>
+  <wsdl:message name="validaExisteBoletaTestSoapIn">
+    <wsdl:part name="parameters" element="tns:validaExisteBoletaTest" />
+  </wsdl:message>
+  <wsdl:message name="validaExisteBoletaTestSoapOut">
+    <wsdl:part name="parameters" element="tns:validaExisteBoletaTestResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSReceiptsGenerationSoap">
+    <wsdl:operation name="generateTransReceipt">
+      <wsdl:input message="tns:generateTransReceiptSoapIn" />
+      <wsdl:output message="tns:generateTransReceiptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="generateAdvanceReceipt">
+      <wsdl:input message="tns:generateAdvanceReceiptSoapIn" />
+      <wsdl:output message="tns:generateAdvanceReceiptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="generateInvoiceReceipt">
+      <wsdl:input message="tns:generateInvoiceReceiptSoapIn" />
+      <wsdl:output message="tns:generateInvoiceReceiptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="generateInvoiceAdvanceReceipt">
+      <wsdl:input message="tns:generateInvoiceAdvanceReceiptSoapIn" />
+      <wsdl:output message="tns:generateInvoiceAdvanceReceiptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerExpediente">
+      <wsdl:input message="tns:obtenerExpedienteSoapIn" />
+      <wsdl:output message="tns:obtenerExpedienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerRTU">
+      <wsdl:input message="tns:obtenerRTUSoapIn" />
+      <wsdl:output message="tns:obtenerRTUSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="validaExisteBoletaTest">
+      <wsdl:input message="tns:validaExisteBoletaTestSoapIn" />
+      <wsdl:output message="tns:validaExisteBoletaTestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSReceiptsGenerationSoap" type="tns:WSReceiptsGenerationSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="generateTransReceipt">
+      <soap:operation soapAction="http://tempuri.org/generateTransReceipt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateAdvanceReceipt">
+      <soap:operation soapAction="http://tempuri.org/generateAdvanceReceipt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateInvoiceReceipt">
+      <soap:operation soapAction="http://tempuri.org/generateInvoiceReceipt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateInvoiceAdvanceReceipt">
+      <soap:operation soapAction="http://tempuri.org/generateInvoiceAdvanceReceipt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerExpediente">
+      <soap:operation soapAction="http://tempuri.org/obtenerExpediente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerRTU">
+      <soap:operation soapAction="http://tempuri.org/obtenerRTU" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validaExisteBoletaTest">
+      <soap:operation soapAction="http://tempuri.org/validaExisteBoletaTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSReceiptsGenerationSoap12" type="tns:WSReceiptsGenerationSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="generateTransReceipt">
+      <soap12:operation soapAction="http://tempuri.org/generateTransReceipt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateAdvanceReceipt">
+      <soap12:operation soapAction="http://tempuri.org/generateAdvanceReceipt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateInvoiceReceipt">
+      <soap12:operation soapAction="http://tempuri.org/generateInvoiceReceipt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateInvoiceAdvanceReceipt">
+      <soap12:operation soapAction="http://tempuri.org/generateInvoiceAdvanceReceipt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerExpediente">
+      <soap12:operation soapAction="http://tempuri.org/obtenerExpediente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerRTU">
+      <soap12:operation soapAction="http://tempuri.org/obtenerRTU" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validaExisteBoletaTest">
+      <soap12:operation soapAction="http://tempuri.org/validaExisteBoletaTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSReceiptsGeneration">
+    <wsdl:port name="WSReceiptsGenerationSoap" binding="tns:WSReceiptsGenerationSoap">
+      <soap:address location="http://10.0.3.71/ws/wsreceiptsgeneration.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSReceiptsGenerationSoap12" binding="tns:WSReceiptsGenerationSoap12">
+      <soap12:address location="http://10.0.3.71/ws/wsreceiptsgeneration.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

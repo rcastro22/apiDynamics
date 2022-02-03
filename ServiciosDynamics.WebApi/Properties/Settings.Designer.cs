@@ -92,5 +92,15 @@ namespace ServiciosDynamics.WebApi.Properties {
                 return ((string)(this["ServiciosDynamics_WebApi_WSInterfaceDyn_WSInterfaceDynamics"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.0.3.71/ws/wsreceiptsgeneration.asmx")]
+        public string ServiciosDynamics_WebApi_WSRecibos_WSReceiptsGeneration {
+            get {
+                return ((string)(this["ServiciosDynamics_WebApi_WSRecibos_WSReceiptsGeneration"]));
+            }
+        }
     }
 }
