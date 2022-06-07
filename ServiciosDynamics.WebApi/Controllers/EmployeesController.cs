@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace ServiciosDynamics.WebApi.Controllers
@@ -61,5 +62,38 @@ namespace ServiciosDynamics.WebApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        /// <summary>
+        /// Obtiene los tramites de empleados nuevos
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("nuevoEmpleadoTramite")]
+        public IEnumerable<Solicitudes_Result> NuevoEmplTramite()
+        {
+            List<Solicitudes_Result> sol;
+            Uri BaseUriDG = new Uri("https://dg.galileo.edu/fotos/");
+            
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = BaseUriDG;
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    HttpResponseMessage response = client.GetAsync("Personal/obtenerSolicitudes").Result;
+
+                    response.EnsureSuccessStatusCode();
+                    sol = response.Content.ReadAsAsync<List<Solicitudes_Result>>().Result;                    
+                }
+
+                return sol;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
     }
 }

@@ -179,6 +179,8 @@
     </Compile>
     <Compile Include="Models\DG\SubirSancionModel.cs" />
     <Compile Include="Models\DG\DGArchivoModel.cs" />
+    <Compile Include="Models\Employees\DataSolicitud.cs" />
+    <Compile Include="Models\Employees\Solicitudes_Result.cs" />
     <Compile Include="Models\Employees\EmplTableModel.cs" />
     <Compile Include="Models\Employees\Familiares.cs" />
     <Compile Include="Models\Ingresos\ConceptoFaltante_Result.cs" />
@@ -192,6 +194,7 @@
     <Compile Include="Models\Invoice\CodpersModel.cs" />
     <Compile Include="Models\Invoice\CatedraticoFaltante_Result.cs" />
     <Compile Include="Models\Invoice\InfoBancariaDocente_Result.cs" />
+    <Compile Include="Models\Invoice\ValidInvoiceNitModel.cs" />
     <Compile Include="Models\Invoice\ValidInvoiceModel.cs" />
     <Compile Include="Models\Invoice\InvoiceModel.cs" />
     <Compile Include="Models\Library\ReciboModel.cs" />

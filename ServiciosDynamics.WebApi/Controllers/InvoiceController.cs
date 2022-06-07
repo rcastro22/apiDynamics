@@ -97,6 +97,37 @@ namespace ServiciosDynamics.WebApi.Controllers
         }
 
         /// <summary>
+        /// Valida las facturas en Dynamics por NIT
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("existeFacturaNit")]
+        public IHttpActionResult ExisteNit([FromUri] ValidInvoiceNitModel invoiceData)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                WSFacturas.WSFacturas ws = new WSFacturas.WSFacturas();
+
+                bool ret = ws.validarFacturaNit(
+                    invoiceData.nit,
+                    invoiceData.factura_serie,
+                    invoiceData.factura_numero
+                    );
+
+                return Ok(ret);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Obtiene la informacion bancaria del docente
         /// </summary>
         /// <returns></returns>
