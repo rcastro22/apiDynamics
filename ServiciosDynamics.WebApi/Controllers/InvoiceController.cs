@@ -102,29 +102,43 @@ namespace ServiciosDynamics.WebApi.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("existeFacturaNit")]
-        public IHttpActionResult ExisteNit([FromUri] ValidInvoiceNitModel invoiceData)
+        public InfoExcenciones_Result ExisteNit([FromUri] ValidInvoiceNitModel invoiceData)
         {
+                    
+            /*if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }*/
+
+            WSFacturas.WSFacturas ws = new WSFacturas.WSFacturas();
+
+            string ret = ws.validarFacturaNit(
+                invoiceData.nit,
+                invoiceData.factura_serie,
+                invoiceData.factura_numero
+                );
+            
+            InfoExcenciones_Result info = new InfoExcenciones_Result();
+
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
-
-                WSFacturas.WSFacturas ws = new WSFacturas.WSFacturas();
-
-                bool ret = ws.validarFacturaNit(
-                    invoiceData.nit,
-                    invoiceData.factura_serie,
-                    invoiceData.factura_numero
-                    );
-
-                return Ok(ret);
+                String[] listData = ret.Split('$');
+                info.Referencia = listData[0];
+                info.Proveedor = listData[1];
+                info.Docente = listData[2];
+                info.ProveedorNombre = listData[3];
             }
-            catch (Exception ex)
+            catch(Exception e)
             {
-                return BadRequest(ex.Message);
+                info.Referencia = "";
+                info.Proveedor = "";
+                info.Docente = "";
+                info.ProveedorNombre = "";
             }
+            
+
+            return info;
+
         }
 
         /// <summary>
@@ -195,6 +209,41 @@ namespace ServiciosDynamics.WebApi.Controllers
                 return BadRequest(ex.Message);
             }
 
+        }
+
+
+        /// <summary>
+        /// Agrega las excenciones a Dynamics
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("agregaExencion")]
+        public IHttpActionResult AgregaExencion([FromBody] GuardaAutorizacionModel exenData)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                WSFacturas.WSFacturas ws = new WSFacturas.WSFacturas();
+
+                ws.agregarExension(
+                    exenData.autorizacion,
+                    exenData.ref_interna,
+                    exenData.fecha_autorizacion,
+                    exenData.nit,
+                    exenData.factura_serie,
+                    exenData.factura_numero
+                    );
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
 

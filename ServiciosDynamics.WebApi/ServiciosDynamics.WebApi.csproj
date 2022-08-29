@@ -177,9 +177,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DG\Etiquetas.cs" />
+    <Compile Include="Models\DG\ObtenerArchivos_Result.cs" />
+    <Compile Include="Models\DG\ObtenerArchivos.cs" />
+    <Compile Include="Models\DG\CorreosModel.cs" />
     <Compile Include="Models\DG\SubirSancionModel.cs" />
     <Compile Include="Models\DG\DGArchivoModel.cs" />
     <Compile Include="Models\Employees\DataSolicitud.cs" />
+    <Compile Include="Models\Employees\PeopleModel.cs" />
     <Compile Include="Models\Employees\Solicitudes_Result.cs" />
     <Compile Include="Models\Employees\EmplTableModel.cs" />
     <Compile Include="Models\Employees\Familiares.cs" />
@@ -189,11 +194,13 @@
     <Compile Include="Models\Ingresos\Ingresos_Result.cs" />
     <Compile Include="Models\Ingresos\IngresosModel.cs" />
     <Compile Include="Models\Invoice\InfoPagoDetalle_Result.cs" />
+    <Compile Include="Models\Invoice\InfoExenciones_Result.cs" />
     <Compile Include="Models\Invoice\InfoPagoFacturacion_Result.cs" />
     <Compile Include="Models\Invoice\CarreraFaltante_Result.cs" />
     <Compile Include="Models\Invoice\CodpersModel.cs" />
     <Compile Include="Models\Invoice\CatedraticoFaltante_Result.cs" />
     <Compile Include="Models\Invoice\InfoBancariaDocente_Result.cs" />
+    <Compile Include="Models\Invoice\GuardaAutorizacionModel.cs" />
     <Compile Include="Models\Invoice\ValidInvoiceNitModel.cs" />
     <Compile Include="Models\Invoice\ValidInvoiceModel.cs" />
     <Compile Include="Models\Invoice\InvoiceModel.cs" />
