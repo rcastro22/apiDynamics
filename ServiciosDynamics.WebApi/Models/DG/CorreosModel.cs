@@ -7,7 +7,7 @@ namespace ServiciosDynamics.WebApi.Models.DG
         [Required]
         public string Para { get; set; }
 
-        public string Copia { get; set; }
+        public string Cco { get; set; }
 
         public string Asunto { get; set; }
 

@@ -158,7 +158,7 @@ namespace ServiciosDynamics.WebApi.Controllers
         [Route("sendEmail")]
         public IHttpActionResult enviarCorreo([FromBody] CorreosModel Data)
         {
-            Uri BaseUriDG = new Uri("https://dg.galileo.edu/core/");
+            Uri BaseUriDG = new Uri("http://10.0.3.33/");
 
             try
             {
@@ -169,7 +169,7 @@ namespace ServiciosDynamics.WebApi.Controllers
 
                     StringContent Content = new StringContent(JsonConvert.SerializeObject(Data), Encoding.UTF8, "application/json");
                     HttpContent httpContent = Content;
-                    httpContent.Headers.Add("Token", "Dynamics");
+                    httpContent.Headers.Add("Token", "D75918C41FA023B4BDF2B37387715E000BC998B0B5DDEB5AD73F9A1C413C5219DAFBEE21A552837938575FC596CDC856F659B55CD3909BB45C3EDA91386EE101");
                     System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
                     HttpResponseMessage response = client.PostAsync("api/Correos/Comentario", httpContent).Result;

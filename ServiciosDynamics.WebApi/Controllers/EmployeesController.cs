@@ -83,6 +83,7 @@ namespace ServiciosDynamics.WebApi.Controllers
                 {
                     client.BaseAddress = BaseUriDG;
                     client.DefaultRequestHeaders.Accept.Clear();
+                    System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
                     HttpResponseMessage response = client.GetAsync("Personal/obtenerSolicitudes").Result;
 
                     response.EnsureSuccessStatusCode();
