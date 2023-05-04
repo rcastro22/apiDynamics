@@ -99,6 +99,41 @@ namespace ServiciosDynamics.WebApi.Controllers
             }
         }
 
+
+        /// <summary>
+        /// Da seguimiento al tramite del empleado importado a Dynamics
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("seguimientoSolicitud")]
+        public async Task<IHttpActionResult> SeguimientoSolicitud([FromBody] SolSeguimientoModel solData)
+        {
+            string ret = "";
+            Uri BaseUriDG = new Uri("https://dg.galileo.edu/fotos/");
+
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = BaseUriDG;
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    StringContent Content = new StringContent(JsonConvert.SerializeObject(solData), Encoding.UTF8, "application/json");
+                    System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+                    HttpResponseMessage response = await client.PostAsync("Personal/seguimientoSolicitud",Content);
+
+                    response.EnsureSuccessStatusCode();
+                    ret = response.Content.ReadAsAsync<string>().Result;
+                }
+
+                return Ok(ret);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         /// <summary>
         /// Obtiene los tramites de empleados nuevos
         /// </summary>

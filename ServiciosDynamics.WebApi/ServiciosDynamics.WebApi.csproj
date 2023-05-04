@@ -184,6 +184,7 @@
     <Compile Include="Models\DG\SubirSancionModel.cs" />
     <Compile Include="Models\DG\DGArchivoModel.cs" />
     <Compile Include="Models\Employees\DataSolicitud.cs" />
+    <Compile Include="Models\Employees\SolSeguimientoModel.cs" />
     <Compile Include="Models\Employees\PeopleModel.cs" />
     <Compile Include="Models\Employees\Solicitudes_Result.cs" />
     <Compile Include="Models\Employees\EmplTableModel.cs" />
