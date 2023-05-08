@@ -2,6 +2,7 @@
 using ServiciosDynamics.WebApi.Models.DG;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -53,8 +54,9 @@ namespace ServiciosDynamics.WebApi.Controllers
 
         public string ObtenerArchivos(string Aplicacion, string Categoria, string Etiquetas)
         {
+            string url = ConfigurationManager.AppSettings["dgDG"];
             string ret = "";
-            Uri BaseUriDG = new Uri("https://dg.galileo.edu/DG/");
+            Uri BaseUriDG = new Uri(url);
 
             char[] separador = { '&' };
             char[] separador2 = { '=' };
@@ -158,7 +160,8 @@ namespace ServiciosDynamics.WebApi.Controllers
         [Route("sendEmail")]
         public IHttpActionResult enviarCorreo([FromBody] CorreosModel Data)
         {
-            Uri BaseUriDG = new Uri("http://10.0.3.33/");
+            string url = ConfigurationManager.AppSettings["correos"];
+            Uri BaseUriDG = new Uri(url);
 
             try
             {
