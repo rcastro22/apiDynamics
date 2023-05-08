@@ -2,6 +2,7 @@
 using ServiciosDynamics.WebApi.Models.Employees;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -74,8 +75,9 @@ namespace ServiciosDynamics.WebApi.Controllers
         [Route("nuevoEmpleadoTramite")]
         public IEnumerable<Solicitudes_Result> NuevoEmplTramite()
         {
+            string url = ConfigurationManager.AppSettings["dgFotos"];
             List<Solicitudes_Result> sol;
-            Uri BaseUriDG = new Uri("https://dg.galileo.edu/fotos/");
+            Uri BaseUriDG = new Uri(url);
             
             try
             {
@@ -108,8 +110,10 @@ namespace ServiciosDynamics.WebApi.Controllers
         [Route("seguimientoSolicitud")]
         public async Task<IHttpActionResult> SeguimientoSolicitud([FromBody] SolSeguimientoModel solData)
         {
+            string url = ConfigurationManager.AppSettings["dgFotos"];
+            SolSeguimiento_Result result;
             string ret = "";
-            Uri BaseUriDG = new Uri("https://dg.galileo.edu/fotos/");
+            Uri BaseUriDG = new Uri(url);
 
             try
             {
@@ -122,10 +126,10 @@ namespace ServiciosDynamics.WebApi.Controllers
                     HttpResponseMessage response = await client.PostAsync("Personal/seguimientoSolicitud",Content);
 
                     response.EnsureSuccessStatusCode();
-                    ret = response.Content.ReadAsAsync<string>().Result;
+                    result = response.Content.ReadAsAsync<SolSeguimiento_Result>().Result;
                 }
 
-                return Ok(ret);
+                return Ok(result);
 
             }
             catch (Exception ex)
@@ -142,9 +146,10 @@ namespace ServiciosDynamics.WebApi.Controllers
         [Route("People")]
         public async Task<IHttpActionResult> People([FromBody] PeopleModel emplData)
         {
+            string url = ConfigurationManager.AppSettings["dgCore"];
             List<Solicitudes_Result> sol;
             string ret="";
-            Uri BaseUriDG = new Uri("https://dg.galileo.edu/core/api/");
+            Uri BaseUriDG = new Uri(url);
 
             try
             {
