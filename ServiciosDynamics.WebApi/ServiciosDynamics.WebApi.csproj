@@ -184,6 +184,11 @@
     <Compile Include="Models\DG\SubirSancionModel.cs" />
     <Compile Include="Models\DG\DGArchivoModel.cs" />
     <Compile Include="Models\Employees\DataSolicitud.cs" />
+    <Compile Include="Models\Employees\Buscar_Result.cs" />
+    <Compile Include="Models\Employees\DatosEmplVac_Result.cs" />
+    <Compile Include="Models\Employees\GenerarVacModel.cs" />
+    <Compile Include="Models\Employees\PeriodosVac_Result.cs" />
+    <Compile Include="Models\Employees\PeriodosVacModel.cs" />
     <Compile Include="Models\Employees\SolSeguimiento_Result.cs" />
     <Compile Include="Models\Employees\SolSeguimientoModel.cs" />
     <Compile Include="Models\Employees\PeopleModel.cs" />
@@ -255,6 +260,11 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\WSRecibos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WSVacaciones\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -355,6 +365,11 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
     <None Include="Web References\WSRecibos\wsreceiptsgeneration.disco" />
+    <None Include="Web References\WSVacaciones\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WSVacaciones\wsvacaciones.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -374,6 +389,7 @@
     <None Include="Web References\WSFacturas\WSFacturas.wsdl" />
     <None Include="Web References\WSLibreria\WSLibreria.wsdl" />
     <None Include="Web References\WSRecibos\wsreceiptsgeneration.wsdl" />
+    <None Include="Web References\WSVacaciones\wsvacaciones.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -446,6 +462,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>ServiciosDynamics_WebApi_WSRecibos_WSReceiptsGeneration</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://10.0.3.71/ws/wsvacaciones.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WSVacaciones\</RelPath>
+      <UpdateFromURL>http://10.0.3.71/ws/wsvacaciones.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ServiciosDynamics_WebApi_WSVacaciones_WSVacaciones</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:13826/WSLibreria.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>

@@ -5,15 +5,6 @@
     <Setting Name="ServiciosDynamics_WebApi_WSFacturas_WSFacturas" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://10.0.3.71/ws/WSFacturas.asmx</Value>
     </Setting>
-    <Setting Name="ServiciosDynamics_WebApi_WSDGArchivo_WSDGArchivo" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://10.0.3.75/ws/WSDGArchivo.asmx</Value>
-    </Setting>
-    <Setting Name="ServiciosDynamics_WebApi_WSEmpleados_WSEmpleados" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://srvdynamicsdesa/ws/WSEmpleados.asmx</Value>
-    </Setting>
-    <Setting Name="ServiciosDynamics_WebApi_WSLibreria_WSLibreria" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://localhost:13826/WSLibreria.asmx</Value>
-    </Setting>
     <Setting Name="ServiciosDynamics_WebApi_TipoCambio_TipoCambio" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://www.banguat.gob.gt/variables/ws/TipoCambio.asmx</Value>
     </Setting>
@@ -25,6 +16,18 @@
     </Setting>
     <Setting Name="ServiciosDynamics_WebApi_WSRecibos_WSReceiptsGeneration" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://10.0.3.71/ws/wsreceiptsgeneration.asmx</Value>
+    </Setting>
+    <Setting Name="ServiciosDynamics_WebApi_WSDGArchivo_WSDGArchivo" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.0.3.71/ws/WSDGArchivo.asmx</Value>
+    </Setting>
+    <Setting Name="ServiciosDynamics_WebApi_WSEmpleados_WSEmpleados" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.0.3.71/ws/WSEmpleados.asmx</Value>
+    </Setting>
+    <Setting Name="ServiciosDynamics_WebApi_WSLibreria_WSLibreria" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.0.3.71/WSLibreria.asmx</Value>
+    </Setting>
+    <Setting Name="ServiciosDynamics_WebApi_WSVacaciones_WSVacaciones" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.0.3.71/ws/wsvacaciones.asmx</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -36,36 +36,6 @@ namespace ServiciosDynamics.WebApi.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://10.0.3.75/ws/WSDGArchivo.asmx")]
-        public string ServiciosDynamics_WebApi_WSDGArchivo_WSDGArchivo {
-            get {
-                return ((string)(this["ServiciosDynamics_WebApi_WSDGArchivo_WSDGArchivo"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://srvdynamicsdesa/ws/WSEmpleados.asmx")]
-        public string ServiciosDynamics_WebApi_WSEmpleados_WSEmpleados {
-            get {
-                return ((string)(this["ServiciosDynamics_WebApi_WSEmpleados_WSEmpleados"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:13826/WSLibreria.asmx")]
-        public string ServiciosDynamics_WebApi_WSLibreria_WSLibreria {
-            get {
-                return ((string)(this["ServiciosDynamics_WebApi_WSLibreria_WSLibreria"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://www.banguat.gob.gt/variables/ws/TipoCambio.asmx")]
         public string ServiciosDynamics_WebApi_TipoCambio_TipoCambio {
             get {
@@ -100,6 +70,46 @@ namespace ServiciosDynamics.WebApi.Properties {
         public string ServiciosDynamics_WebApi_WSRecibos_WSReceiptsGeneration {
             get {
                 return ((string)(this["ServiciosDynamics_WebApi_WSRecibos_WSReceiptsGeneration"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.0.3.71/ws/WSDGArchivo.asmx")]
+        public string ServiciosDynamics_WebApi_WSDGArchivo_WSDGArchivo {
+            get {
+                return ((string)(this["ServiciosDynamics_WebApi_WSDGArchivo_WSDGArchivo"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.0.3.71/ws/WSEmpleados.asmx")]
+        public string ServiciosDynamics_WebApi_WSEmpleados_WSEmpleados {
+            get {
+                return ((string)(this["ServiciosDynamics_WebApi_WSEmpleados_WSEmpleados"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.0.3.71/WSLibreria.asmx")]
+        public string ServiciosDynamics_WebApi_WSLibreria_WSLibreria {
+            get {
+                return ((string)(this["ServiciosDynamics_WebApi_WSLibreria_WSLibreria"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.0.3.71/ws/wsvacaciones.asmx")]
+        public string ServiciosDynamics_WebApi_WSVacaciones_WSVacaciones {
+            get {
+                return ((string)(this["ServiciosDynamics_WebApi_WSVacaciones_WSVacaciones"]));
             }
         }
     }
