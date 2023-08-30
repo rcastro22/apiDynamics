@@ -25,6 +25,8 @@ namespace ServiciosDynamics.WebApi.Models.Employees
         public string Codigo { get; set; }
         public string Puesto { get; set; }
         public string Departamento { get; set; }
+        public string Usuario { get; set; }
+        public string Nit { get; set; }
 
     }
 }
