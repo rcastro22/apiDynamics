@@ -112,5 +112,15 @@ namespace ServiciosDynamics.WebApi.Properties {
                 return ((string)(this["ServiciosDynamics_WebApi_WSVacaciones_WSVacaciones"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.0.3.71/ws/WSDocentes.asmx")]
+        public string ServiciosDynamics_WebApi_WSDocentes_WSDocentes {
+            get {
+                return ((string)(this["ServiciosDynamics_WebApi_WSDocentes_WSDocentes"]));
+            }
+        }
     }
 }

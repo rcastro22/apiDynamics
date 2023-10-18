@@ -170,6 +170,7 @@
     <Compile Include="Controllers\GeneraReciboController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngresosController.cs" />
+    <Compile Include="Controllers\DocenteController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\LibraryController.cs" />
     <Compile Include="Controllers\TipoCambioController.cs" />
@@ -183,6 +184,7 @@
     <Compile Include="Models\DG\CorreosModel.cs" />
     <Compile Include="Models\DG\SubirSancionModel.cs" />
     <Compile Include="Models\DG\DGArchivoModel.cs" />
+    <Compile Include="Models\Docente\NuevoTutorDocenteModel.cs" />
     <Compile Include="Models\Employees\DataSolicitud.cs" />
     <Compile Include="Models\Employees\Buscar_Result.cs" />
     <Compile Include="Models\Employees\DatosEmplVac_Result.cs" />
@@ -230,6 +232,11 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\WSDGArchivo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WSDocentes\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -328,6 +335,11 @@
     </None>
     <None Include="Web References\TipoCambio\TipoCambio.wsdl" />
     <None Include="Web References\WSDGArchivo\WSDGArchivo.wsdl" />
+    <Content Include="Web References\WSDocentes\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\WSDocentes\WSDocentes.wsdl" />
     <None Include="Web References\WSEmpleados\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -345,6 +357,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\WSIngresos\wsingresos.wsdl" />
+    <None Include="Web References\WSDocentes\WSDocentes.disco" />
     <Content Include="Web References\WSInterfaceDyn\DocenteDAX.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
@@ -430,6 +443,17 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://10.0.3.71/ws/WSDocentes.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WSDocentes\</RelPath>
+      <UpdateFromURL>http://10.0.3.71/ws/WSDocentes.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ServiciosDynamics_WebApi_WSDocentes_WSDocentes</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://10.0.3.71/ws/wsingresos.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WSIngresos\</RelPath>

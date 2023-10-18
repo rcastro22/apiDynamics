@@ -29,5 +29,8 @@
     <Setting Name="ServiciosDynamics_WebApi_WSVacaciones_WSVacaciones" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://10.0.3.71/ws/wsvacaciones.asmx</Value>
     </Setting>
+    <Setting Name="ServiciosDynamics_WebApi_WSDocentes_WSDocentes" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.0.3.71/ws/WSDocentes.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
