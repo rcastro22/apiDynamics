@@ -72,7 +72,8 @@ namespace ServiciosDynamics.WebApi.Controllers
                     model.nit,
                     model.nombre,
                     model.codigo,
-                    model.nacional
+                    model.nacional,
+                    model.usuario_oracle
                     );
 
                 return Ok(ret);

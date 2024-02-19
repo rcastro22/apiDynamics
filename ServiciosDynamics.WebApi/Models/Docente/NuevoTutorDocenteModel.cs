@@ -19,5 +19,8 @@ namespace ServiciosDynamics.WebApi.Models.Docente
 
         [Required]
         public bool nacional { get; set; }
+
+        [Required]
+        public string usuario_oracle { get; set; }
     }
 }

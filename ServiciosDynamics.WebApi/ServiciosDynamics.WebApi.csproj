@@ -335,10 +335,10 @@
     </None>
     <None Include="Web References\TipoCambio\TipoCambio.wsdl" />
     <None Include="Web References\WSDGArchivo\WSDGArchivo.wsdl" />
-    <Content Include="Web References\WSDocentes\Reference.map">
+    <None Include="Web References\WSDocentes\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Web References\WSDocentes\WSDocentes.wsdl" />
     <None Include="Web References\WSEmpleados\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>

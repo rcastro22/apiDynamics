@@ -79,23 +79,24 @@ namespace ServiciosDynamics.WebApi.WSDocentes {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/nuevoTutorDocenteDAX", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string nuevoTutorDocenteDAX(string _orig, string _nit, string _nombre, string _codigo, bool _nacional) {
+        public string nuevoTutorDocenteDAX(string _orig, string _nit, string _nombre, string _codigo, bool _nacional, string _usuarioOracle) {
             object[] results = this.Invoke("nuevoTutorDocenteDAX", new object[] {
                         _orig,
                         _nit,
                         _nombre,
                         _codigo,
-                        _nacional});
+                        _nacional,
+                        _usuarioOracle});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void nuevoTutorDocenteDAXAsync(string _orig, string _nit, string _nombre, string _codigo, bool _nacional) {
-            this.nuevoTutorDocenteDAXAsync(_orig, _nit, _nombre, _codigo, _nacional, null);
+        public void nuevoTutorDocenteDAXAsync(string _orig, string _nit, string _nombre, string _codigo, bool _nacional, string _usuarioOracle) {
+            this.nuevoTutorDocenteDAXAsync(_orig, _nit, _nombre, _codigo, _nacional, _usuarioOracle, null);
         }
         
         /// <remarks/>
-        public void nuevoTutorDocenteDAXAsync(string _orig, string _nit, string _nombre, string _codigo, bool _nacional, object userState) {
+        public void nuevoTutorDocenteDAXAsync(string _orig, string _nit, string _nombre, string _codigo, bool _nacional, string _usuarioOracle, object userState) {
             if ((this.nuevoTutorDocenteDAXOperationCompleted == null)) {
                 this.nuevoTutorDocenteDAXOperationCompleted = new System.Threading.SendOrPostCallback(this.OnnuevoTutorDocenteDAXOperationCompleted);
             }
@@ -104,7 +105,8 @@ namespace ServiciosDynamics.WebApi.WSDocentes {
                         _nit,
                         _nombre,
                         _codigo,
-                        _nacional}, this.nuevoTutorDocenteDAXOperationCompleted, userState);
+                        _nacional,
+                        _usuarioOracle}, this.nuevoTutorDocenteDAXOperationCompleted, userState);
         }
         
         private void OnnuevoTutorDocenteDAXOperationCompleted(object arg) {
