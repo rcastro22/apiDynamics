@@ -24,7 +24,7 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="WSFacturasSoap", Namespace="http://galileo.edu/dynamicsax/facturas")]
@@ -301,24 +301,25 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/agregarExension", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string agregarExension(string _autorizacion, string _refInterna, string _fechaAutorizacion, string _nit, string _facturaSerie, string _facturaNumero) {
+        public string agregarExension(string _autorizacion, string _refInterna, string _fechaAutorizacion, string _nit, string _facturaSerie, string _facturaNumero, string _certificadorId) {
             object[] results = this.Invoke("agregarExension", new object[] {
                         _autorizacion,
                         _refInterna,
                         _fechaAutorizacion,
                         _nit,
                         _facturaSerie,
-                        _facturaNumero});
+                        _facturaNumero,
+                        _certificadorId});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void agregarExensionAsync(string _autorizacion, string _refInterna, string _fechaAutorizacion, string _nit, string _facturaSerie, string _facturaNumero) {
-            this.agregarExensionAsync(_autorizacion, _refInterna, _fechaAutorizacion, _nit, _facturaSerie, _facturaNumero, null);
+        public void agregarExensionAsync(string _autorizacion, string _refInterna, string _fechaAutorizacion, string _nit, string _facturaSerie, string _facturaNumero, string _certificadorId) {
+            this.agregarExensionAsync(_autorizacion, _refInterna, _fechaAutorizacion, _nit, _facturaSerie, _facturaNumero, _certificadorId, null);
         }
         
         /// <remarks/>
-        public void agregarExensionAsync(string _autorizacion, string _refInterna, string _fechaAutorizacion, string _nit, string _facturaSerie, string _facturaNumero, object userState) {
+        public void agregarExensionAsync(string _autorizacion, string _refInterna, string _fechaAutorizacion, string _nit, string _facturaSerie, string _facturaNumero, string _certificadorId, object userState) {
             if ((this.agregarExensionOperationCompleted == null)) {
                 this.agregarExensionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnagregarExensionOperationCompleted);
             }
@@ -328,7 +329,8 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
                         _fechaAutorizacion,
                         _nit,
                         _facturaSerie,
-                        _facturaNumero}, this.agregarExensionOperationCompleted, userState);
+                        _facturaNumero,
+                        _certificadorId}, this.agregarExensionOperationCompleted, userState);
         }
         
         private void OnagregarExensionOperationCompleted(object arg) {
@@ -544,11 +546,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void agregarFacturaCompletedEventHandler(object sender, agregarFacturaCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class agregarFacturaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -570,11 +572,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void validarFacturaCompletedEventHandler(object sender, validarFacturaCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class validarFacturaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -596,11 +598,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void validarFacturaNitCompletedEventHandler(object sender, validarFacturaNitCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class validarFacturaNitCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -622,11 +624,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void infoBancariaDocenteCompletedEventHandler(object sender, infoBancariaDocenteCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class infoBancariaDocenteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -648,11 +650,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void validaEsDocenteCompletedEventHandler(object sender, validaEsDocenteCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class validaEsDocenteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -674,11 +676,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void agregarExensionCompletedEventHandler(object sender, agregarExensionCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class agregarExensionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -700,11 +702,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void infoPagoFacturacionCompletedEventHandler(object sender, infoPagoFacturacionCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class infoPagoFacturacionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -726,11 +728,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void infoPagoDetalleCompletedEventHandler(object sender, infoPagoDetalleCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class infoPagoDetalleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -752,11 +754,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void insertHpagosCompletedEventHandler(object sender, insertHpagosCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class insertHpagosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -778,11 +780,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void insertHpagosUgaDetalleCompletedEventHandler(object sender, insertHpagosUgaDetalleCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class insertHpagosUgaDetalleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -804,11 +806,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void deletePagosUgaDetalleCompletedEventHandler(object sender, deletePagosUgaDetalleCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class deletePagosUgaDetalleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -830,11 +832,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void deletePagosUgaCompletedEventHandler(object sender, deletePagosUgaCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class deletePagosUgaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {

@@ -235,7 +235,8 @@ namespace ServiciosDynamics.WebApi.Controllers
                     exenData.fecha_autorizacion,
                     exenData.nit,
                     exenData.factura_serie,
-                    exenData.factura_numero
+                    exenData.factura_numero,
+                    exenData.certificador_id.ToString()
                     );
 
                 return Ok();

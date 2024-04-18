@@ -21,5 +21,8 @@ namespace ServiciosDynamics.WebApi.Models.Invoice
 
         [Required]
         public string fecha_autorizacion { get; set; }
+
+        [Required]
+        public int certificador_id { get; set; }
     }
 }
