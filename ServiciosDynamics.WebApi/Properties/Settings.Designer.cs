@@ -12,7 +12,7 @@ namespace ServiciosDynamics.WebApi.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -30,16 +30,6 @@ namespace ServiciosDynamics.WebApi.Properties {
         public string ServiciosDynamics_WebApi_WSFacturas_WSFacturas {
             get {
                 return ((string)(this["ServiciosDynamics_WebApi_WSFacturas_WSFacturas"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://www.banguat.gob.gt/variables/ws/TipoCambio.asmx")]
-        public string ServiciosDynamics_WebApi_TipoCambio_TipoCambio {
-            get {
-                return ((string)(this["ServiciosDynamics_WebApi_TipoCambio_TipoCambio"]));
             }
         }
         
@@ -120,6 +110,16 @@ namespace ServiciosDynamics.WebApi.Properties {
         public string ServiciosDynamics_WebApi_WSDocentes_WSDocentes {
             get {
                 return ((string)(this["ServiciosDynamics_WebApi_WSDocentes_WSDocentes"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://www.banguat.gob.gt/variables/ws/TipoCambio.asmx")]
+        public string ServiciosDynamics_WebApi_TipoCambio_TipoCambio {
+            get {
+                return ((string)(this["ServiciosDynamics_WebApi_TipoCambio_TipoCambio"]));
             }
         }
     }

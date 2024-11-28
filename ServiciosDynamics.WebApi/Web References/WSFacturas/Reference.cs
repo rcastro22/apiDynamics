@@ -14,20 +14,20 @@
 #pragma warning disable 1591
 
 namespace ServiciosDynamics.WebApi.WSFacturas {
-    using System;
-    using System.Web.Services;
     using System.Diagnostics;
-    using System.Web.Services.Protocols;
+    using System;
     using System.Xml.Serialization;
     using System.ComponentModel;
+    using System.Web.Services.Protocols;
+    using System.Web.Services;
     using System.Data;
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="WSFacturasSoap", Namespace="http://galileo.edu/dynamicsax/facturas")]
+    [System.Web.Services.WebServiceBindingAttribute(Name="WSFacturasSoap", Namespace="http://tempuri.org/")]
     public partial class WSFacturas : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback agregarFacturaOperationCompleted;
@@ -129,7 +129,7 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         public event deletePagosUgaCompletedEventHandler deletePagosUgaCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/agregarFactura", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/agregarFactura", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string agregarFactura(string _proveedor, string _facturaserie, string _facturanumero, string _fechafactura, string _descripcion, decimal _monto, string _iddetalle, int _typeStaff, string _usuariooracle, string _noTramite) {
             object[] results = this.Invoke("agregarFactura", new object[] {
                         _proveedor,
@@ -176,7 +176,7 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/validarFactura", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/validarFactura", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public bool validarFactura(string _proveedor, string _facturaserie, string _facturanumero) {
             object[] results = this.Invoke("validarFactura", new object[] {
                         _proveedor,
@@ -209,7 +209,7 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/validarFacturaNit", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/validarFacturaNit", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string validarFacturaNit(string _nit, string _facturaserie, string _facturanumero) {
             object[] results = this.Invoke("validarFacturaNit", new object[] {
                         _nit,
@@ -242,7 +242,7 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/infoBancariaDocente", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/infoBancariaDocente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataTable infoBancariaDocente(string _codpers) {
             object[] results = this.Invoke("infoBancariaDocente", new object[] {
                         _codpers});
@@ -271,7 +271,7 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/validaEsDocente", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/validaEsDocente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public bool validaEsDocente(string _codpers) {
             object[] results = this.Invoke("validaEsDocente", new object[] {
                         _codpers});
@@ -300,7 +300,7 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/agregarExension", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/agregarExension", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string agregarExension(string _autorizacion, string _refInterna, string _fechaAutorizacion, string _nit, string _facturaSerie, string _facturaNumero, string _certificadorId) {
             object[] results = this.Invoke("agregarExension", new object[] {
                         _autorizacion,
@@ -341,7 +341,7 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/infoPagoFacturacion", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/infoPagoFacturacion", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataTable infoPagoFacturacion(string _origen, string _fecha) {
             object[] results = this.Invoke("infoPagoFacturacion", new object[] {
                         _origen,
@@ -372,7 +372,7 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/infoPagoDetalle", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/infoPagoDetalle", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataTable infoPagoDetalle(string _nomina, string _correlativo) {
             object[] results = this.Invoke("infoPagoDetalle", new object[] {
                         _nomina,
@@ -403,7 +403,7 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/insertHpagos", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/insertHpagos", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public int insertHpagos(string _nomina, string _correlativo) {
             object[] results = this.Invoke("insertHpagos", new object[] {
                         _nomina,
@@ -434,7 +434,7 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/insertHpagosUgaDetalle", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/insertHpagosUgaDetalle", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public int insertHpagosUgaDetalle(string _nomina, string _correlativo) {
             object[] results = this.Invoke("insertHpagosUgaDetalle", new object[] {
                         _nomina,
@@ -465,7 +465,7 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/deletePagosUgaDetalle", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/deletePagosUgaDetalle", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public int deletePagosUgaDetalle(string _nomina, string _correlativo) {
             object[] results = this.Invoke("deletePagosUgaDetalle", new object[] {
                         _nomina,
@@ -496,7 +496,7 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://galileo.edu/dynamicsax/facturas/deletePagosUga", RequestNamespace="http://galileo.edu/dynamicsax/facturas", ResponseNamespace="http://galileo.edu/dynamicsax/facturas", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/deletePagosUga", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public int deletePagosUga(string _nomina, string _correlativo) {
             object[] results = this.Invoke("deletePagosUga", new object[] {
                         _nomina,
@@ -546,11 +546,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void agregarFacturaCompletedEventHandler(object sender, agregarFacturaCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class agregarFacturaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -572,11 +572,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void validarFacturaCompletedEventHandler(object sender, validarFacturaCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class validarFacturaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -598,11 +598,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void validarFacturaNitCompletedEventHandler(object sender, validarFacturaNitCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class validarFacturaNitCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -624,11 +624,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void infoBancariaDocenteCompletedEventHandler(object sender, infoBancariaDocenteCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class infoBancariaDocenteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -650,11 +650,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void validaEsDocenteCompletedEventHandler(object sender, validaEsDocenteCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class validaEsDocenteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -676,11 +676,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void agregarExensionCompletedEventHandler(object sender, agregarExensionCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class agregarExensionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -702,11 +702,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void infoPagoFacturacionCompletedEventHandler(object sender, infoPagoFacturacionCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class infoPagoFacturacionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -728,11 +728,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void infoPagoDetalleCompletedEventHandler(object sender, infoPagoDetalleCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class infoPagoDetalleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -754,11 +754,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void insertHpagosCompletedEventHandler(object sender, insertHpagosCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class insertHpagosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -780,11 +780,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void insertHpagosUgaDetalleCompletedEventHandler(object sender, insertHpagosUgaDetalleCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class insertHpagosUgaDetalleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -806,11 +806,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void deletePagosUgaDetalleCompletedEventHandler(object sender, deletePagosUgaDetalleCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class deletePagosUgaDetalleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -832,11 +832,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void deletePagosUgaCompletedEventHandler(object sender, deletePagosUgaCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class deletePagosUgaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {

@@ -28,6 +28,9 @@ namespace ServiciosDynamics.WebApi.Controllers
                 {
                     return BadRequest(ModelState);
                 }
+
+                System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+
                 TipoCambio.TipoCambio ws = new TipoCambio.TipoCambio();
 
                 var ret = ws.TipoCambioFechaInicialMoneda(fimData.fecha, fimData.moneda);

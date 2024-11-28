@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://galileo.edu/dynamicsax/facturas" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://galileo.edu/dynamicsax/facturas" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="http://galileo.edu/dynamicsax/facturas">
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
       <s:element name="agregarFactura">
         <s:complexType>
           <s:sequence>
@@ -216,6 +216,17 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="int" type="s:int" />
     </s:schema>
   </wsdl:types>
   <wsdl:message name="agregarFacturaSoapIn">
@@ -290,6 +301,200 @@
   <wsdl:message name="deletePagosUgaSoapOut">
     <wsdl:part name="parameters" element="tns:deletePagosUgaResponse" />
   </wsdl:message>
+  <wsdl:message name="agregarFacturaHttpGetIn">
+    <wsdl:part name="_proveedor" type="s:string" />
+    <wsdl:part name="_facturaserie" type="s:string" />
+    <wsdl:part name="_facturanumero" type="s:string" />
+    <wsdl:part name="_fechafactura" type="s:string" />
+    <wsdl:part name="_descripcion" type="s:string" />
+    <wsdl:part name="_monto" type="s:string" />
+    <wsdl:part name="_iddetalle" type="s:string" />
+    <wsdl:part name="_typeStaff" type="s:string" />
+    <wsdl:part name="_usuariooracle" type="s:string" />
+    <wsdl:part name="_noTramite" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="agregarFacturaHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="validarFacturaHttpGetIn">
+    <wsdl:part name="_proveedor" type="s:string" />
+    <wsdl:part name="_facturaserie" type="s:string" />
+    <wsdl:part name="_facturanumero" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="validarFacturaHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="validarFacturaNitHttpGetIn">
+    <wsdl:part name="_nit" type="s:string" />
+    <wsdl:part name="_facturaserie" type="s:string" />
+    <wsdl:part name="_facturanumero" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="validarFacturaNitHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="infoBancariaDocenteHttpGetIn">
+    <wsdl:part name="_codpers" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="infoBancariaDocenteHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="validaEsDocenteHttpGetIn">
+    <wsdl:part name="_codpers" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="validaEsDocenteHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="agregarExensionHttpGetIn">
+    <wsdl:part name="_autorizacion" type="s:string" />
+    <wsdl:part name="_refInterna" type="s:string" />
+    <wsdl:part name="_fechaAutorizacion" type="s:string" />
+    <wsdl:part name="_nit" type="s:string" />
+    <wsdl:part name="_facturaSerie" type="s:string" />
+    <wsdl:part name="_facturaNumero" type="s:string" />
+    <wsdl:part name="_certificadorId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="agregarExensionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="infoPagoFacturacionHttpGetIn">
+    <wsdl:part name="_origen" type="s:string" />
+    <wsdl:part name="_fecha" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="infoPagoFacturacionHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="infoPagoDetalleHttpGetIn">
+    <wsdl:part name="_nomina" type="s:string" />
+    <wsdl:part name="_correlativo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="infoPagoDetalleHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="insertHpagosHttpGetIn">
+    <wsdl:part name="_nomina" type="s:string" />
+    <wsdl:part name="_correlativo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="insertHpagosHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="insertHpagosUgaDetalleHttpGetIn">
+    <wsdl:part name="_nomina" type="s:string" />
+    <wsdl:part name="_correlativo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="insertHpagosUgaDetalleHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="deletePagosUgaDetalleHttpGetIn">
+    <wsdl:part name="_nomina" type="s:string" />
+    <wsdl:part name="_correlativo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="deletePagosUgaDetalleHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="deletePagosUgaHttpGetIn">
+    <wsdl:part name="_nomina" type="s:string" />
+    <wsdl:part name="_correlativo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="deletePagosUgaHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="agregarFacturaHttpPostIn">
+    <wsdl:part name="_proveedor" type="s:string" />
+    <wsdl:part name="_facturaserie" type="s:string" />
+    <wsdl:part name="_facturanumero" type="s:string" />
+    <wsdl:part name="_fechafactura" type="s:string" />
+    <wsdl:part name="_descripcion" type="s:string" />
+    <wsdl:part name="_monto" type="s:string" />
+    <wsdl:part name="_iddetalle" type="s:string" />
+    <wsdl:part name="_typeStaff" type="s:string" />
+    <wsdl:part name="_usuariooracle" type="s:string" />
+    <wsdl:part name="_noTramite" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="agregarFacturaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="validarFacturaHttpPostIn">
+    <wsdl:part name="_proveedor" type="s:string" />
+    <wsdl:part name="_facturaserie" type="s:string" />
+    <wsdl:part name="_facturanumero" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="validarFacturaHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="validarFacturaNitHttpPostIn">
+    <wsdl:part name="_nit" type="s:string" />
+    <wsdl:part name="_facturaserie" type="s:string" />
+    <wsdl:part name="_facturanumero" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="validarFacturaNitHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="infoBancariaDocenteHttpPostIn">
+    <wsdl:part name="_codpers" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="infoBancariaDocenteHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="validaEsDocenteHttpPostIn">
+    <wsdl:part name="_codpers" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="validaEsDocenteHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="agregarExensionHttpPostIn">
+    <wsdl:part name="_autorizacion" type="s:string" />
+    <wsdl:part name="_refInterna" type="s:string" />
+    <wsdl:part name="_fechaAutorizacion" type="s:string" />
+    <wsdl:part name="_nit" type="s:string" />
+    <wsdl:part name="_facturaSerie" type="s:string" />
+    <wsdl:part name="_facturaNumero" type="s:string" />
+    <wsdl:part name="_certificadorId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="agregarExensionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="infoPagoFacturacionHttpPostIn">
+    <wsdl:part name="_origen" type="s:string" />
+    <wsdl:part name="_fecha" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="infoPagoFacturacionHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="infoPagoDetalleHttpPostIn">
+    <wsdl:part name="_nomina" type="s:string" />
+    <wsdl:part name="_correlativo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="infoPagoDetalleHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="insertHpagosHttpPostIn">
+    <wsdl:part name="_nomina" type="s:string" />
+    <wsdl:part name="_correlativo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="insertHpagosHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="insertHpagosUgaDetalleHttpPostIn">
+    <wsdl:part name="_nomina" type="s:string" />
+    <wsdl:part name="_correlativo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="insertHpagosUgaDetalleHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="deletePagosUgaDetalleHttpPostIn">
+    <wsdl:part name="_nomina" type="s:string" />
+    <wsdl:part name="_correlativo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="deletePagosUgaDetalleHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="deletePagosUgaHttpPostIn">
+    <wsdl:part name="_nomina" type="s:string" />
+    <wsdl:part name="_correlativo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="deletePagosUgaHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
   <wsdl:portType name="WSFacturasSoap">
     <wsdl:operation name="agregarFactura">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ingresa las facturas del personal</wsdl:documentation>
@@ -352,10 +557,134 @@
       <wsdl:output message="tns:deletePagosUgaSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
+  <wsdl:portType name="WSFacturasHttpGet">
+    <wsdl:operation name="agregarFactura">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ingresa las facturas del personal</wsdl:documentation>
+      <wsdl:input message="tns:agregarFacturaHttpGetIn" />
+      <wsdl:output message="tns:agregarFacturaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="validarFactura">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida que la factura no exista en Dynamics</wsdl:documentation>
+      <wsdl:input message="tns:validarFacturaHttpGetIn" />
+      <wsdl:output message="tns:validarFacturaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="validarFacturaNit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida que la factura no exista en Dynamics por NIT</wsdl:documentation>
+      <wsdl:input message="tns:validarFacturaNitHttpGetIn" />
+      <wsdl:output message="tns:validarFacturaNitHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="infoBancariaDocente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la informacion bancaria del docente</wsdl:documentation>
+      <wsdl:input message="tns:infoBancariaDocenteHttpGetIn" />
+      <wsdl:output message="tns:infoBancariaDocenteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="validaEsDocente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida si el codpers es de docente</wsdl:documentation>
+      <wsdl:input message="tns:validaEsDocenteHttpGetIn" />
+      <wsdl:output message="tns:validaEsDocenteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="agregarExension">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Agrega las exenciones de ISR a Dynamics</wsdl:documentation>
+      <wsdl:input message="tns:agregarExensionHttpGetIn" />
+      <wsdl:output message="tns:agregarExensionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="infoPagoFacturacion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la informacion de Pagos por porfacturación</wsdl:documentation>
+      <wsdl:input message="tns:infoPagoFacturacionHttpGetIn" />
+      <wsdl:output message="tns:infoPagoFacturacionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="infoPagoDetalle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la informacion del detalle de Pagos por porfacturación</wsdl:documentation>
+      <wsdl:input message="tns:infoPagoDetalleHttpGetIn" />
+      <wsdl:output message="tns:infoPagoDetalleHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertHpagos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta registros en la tabla HPAGOSUGA</wsdl:documentation>
+      <wsdl:input message="tns:insertHpagosHttpGetIn" />
+      <wsdl:output message="tns:insertHpagosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertHpagosUgaDetalle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta registros en la tabla HPAGOSUGADETALLE</wsdl:documentation>
+      <wsdl:input message="tns:insertHpagosUgaDetalleHttpGetIn" />
+      <wsdl:output message="tns:insertHpagosUgaDetalleHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePagosUgaDetalle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Elimina registros en la tabla PAGOSUGADETALLE</wsdl:documentation>
+      <wsdl:input message="tns:deletePagosUgaDetalleHttpGetIn" />
+      <wsdl:output message="tns:deletePagosUgaDetalleHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePagosUga">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Elimina registros en la tabla PAGOSUGA</wsdl:documentation>
+      <wsdl:input message="tns:deletePagosUgaHttpGetIn" />
+      <wsdl:output message="tns:deletePagosUgaHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSFacturasHttpPost">
+    <wsdl:operation name="agregarFactura">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ingresa las facturas del personal</wsdl:documentation>
+      <wsdl:input message="tns:agregarFacturaHttpPostIn" />
+      <wsdl:output message="tns:agregarFacturaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="validarFactura">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida que la factura no exista en Dynamics</wsdl:documentation>
+      <wsdl:input message="tns:validarFacturaHttpPostIn" />
+      <wsdl:output message="tns:validarFacturaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="validarFacturaNit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida que la factura no exista en Dynamics por NIT</wsdl:documentation>
+      <wsdl:input message="tns:validarFacturaNitHttpPostIn" />
+      <wsdl:output message="tns:validarFacturaNitHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="infoBancariaDocente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la informacion bancaria del docente</wsdl:documentation>
+      <wsdl:input message="tns:infoBancariaDocenteHttpPostIn" />
+      <wsdl:output message="tns:infoBancariaDocenteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="validaEsDocente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida si el codpers es de docente</wsdl:documentation>
+      <wsdl:input message="tns:validaEsDocenteHttpPostIn" />
+      <wsdl:output message="tns:validaEsDocenteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="agregarExension">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Agrega las exenciones de ISR a Dynamics</wsdl:documentation>
+      <wsdl:input message="tns:agregarExensionHttpPostIn" />
+      <wsdl:output message="tns:agregarExensionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="infoPagoFacturacion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la informacion de Pagos por porfacturación</wsdl:documentation>
+      <wsdl:input message="tns:infoPagoFacturacionHttpPostIn" />
+      <wsdl:output message="tns:infoPagoFacturacionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="infoPagoDetalle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la informacion del detalle de Pagos por porfacturación</wsdl:documentation>
+      <wsdl:input message="tns:infoPagoDetalleHttpPostIn" />
+      <wsdl:output message="tns:infoPagoDetalleHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertHpagos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta registros en la tabla HPAGOSUGA</wsdl:documentation>
+      <wsdl:input message="tns:insertHpagosHttpPostIn" />
+      <wsdl:output message="tns:insertHpagosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertHpagosUgaDetalle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta registros en la tabla HPAGOSUGADETALLE</wsdl:documentation>
+      <wsdl:input message="tns:insertHpagosUgaDetalleHttpPostIn" />
+      <wsdl:output message="tns:insertHpagosUgaDetalleHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePagosUgaDetalle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Elimina registros en la tabla PAGOSUGADETALLE</wsdl:documentation>
+      <wsdl:input message="tns:deletePagosUgaDetalleHttpPostIn" />
+      <wsdl:output message="tns:deletePagosUgaDetalleHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePagosUga">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Elimina registros en la tabla PAGOSUGA</wsdl:documentation>
+      <wsdl:input message="tns:deletePagosUgaHttpPostIn" />
+      <wsdl:output message="tns:deletePagosUgaHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
   <wsdl:binding name="WSFacturasSoap" type="tns:WSFacturasSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="agregarFactura">
-      <soap:operation soapAction="http://galileo.edu/dynamicsax/facturas/agregarFactura" style="document" />
+      <soap:operation soapAction="http://tempuri.org/agregarFactura" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -364,7 +693,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="validarFactura">
-      <soap:operation soapAction="http://galileo.edu/dynamicsax/facturas/validarFactura" style="document" />
+      <soap:operation soapAction="http://tempuri.org/validarFactura" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -373,7 +702,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="validarFacturaNit">
-      <soap:operation soapAction="http://galileo.edu/dynamicsax/facturas/validarFacturaNit" style="document" />
+      <soap:operation soapAction="http://tempuri.org/validarFacturaNit" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -382,7 +711,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="infoBancariaDocente">
-      <soap:operation soapAction="http://galileo.edu/dynamicsax/facturas/infoBancariaDocente" style="document" />
+      <soap:operation soapAction="http://tempuri.org/infoBancariaDocente" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -391,7 +720,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="validaEsDocente">
-      <soap:operation soapAction="http://galileo.edu/dynamicsax/facturas/validaEsDocente" style="document" />
+      <soap:operation soapAction="http://tempuri.org/validaEsDocente" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -400,7 +729,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="agregarExension">
-      <soap:operation soapAction="http://galileo.edu/dynamicsax/facturas/agregarExension" style="document" />
+      <soap:operation soapAction="http://tempuri.org/agregarExension" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -409,7 +738,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="infoPagoFacturacion">
-      <soap:operation soapAction="http://galileo.edu/dynamicsax/facturas/infoPagoFacturacion" style="document" />
+      <soap:operation soapAction="http://tempuri.org/infoPagoFacturacion" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -418,7 +747,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="infoPagoDetalle">
-      <soap:operation soapAction="http://galileo.edu/dynamicsax/facturas/infoPagoDetalle" style="document" />
+      <soap:operation soapAction="http://tempuri.org/infoPagoDetalle" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -427,7 +756,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="insertHpagos">
-      <soap:operation soapAction="http://galileo.edu/dynamicsax/facturas/insertHpagos" style="document" />
+      <soap:operation soapAction="http://tempuri.org/insertHpagos" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -436,7 +765,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="insertHpagosUgaDetalle">
-      <soap:operation soapAction="http://galileo.edu/dynamicsax/facturas/insertHpagosUgaDetalle" style="document" />
+      <soap:operation soapAction="http://tempuri.org/insertHpagosUgaDetalle" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -445,7 +774,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="deletePagosUgaDetalle">
-      <soap:operation soapAction="http://galileo.edu/dynamicsax/facturas/deletePagosUgaDetalle" style="document" />
+      <soap:operation soapAction="http://tempuri.org/deletePagosUgaDetalle" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -454,7 +783,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="deletePagosUga">
-      <soap:operation soapAction="http://galileo.edu/dynamicsax/facturas/deletePagosUga" style="document" />
+      <soap:operation soapAction="http://tempuri.org/deletePagosUga" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -466,7 +795,7 @@
   <wsdl:binding name="WSFacturasSoap12" type="tns:WSFacturasSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="agregarFactura">
-      <soap12:operation soapAction="http://galileo.edu/dynamicsax/facturas/agregarFactura" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/agregarFactura" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -475,7 +804,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="validarFactura">
-      <soap12:operation soapAction="http://galileo.edu/dynamicsax/facturas/validarFactura" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/validarFactura" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -484,7 +813,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="validarFacturaNit">
-      <soap12:operation soapAction="http://galileo.edu/dynamicsax/facturas/validarFacturaNit" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/validarFacturaNit" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -493,7 +822,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="infoBancariaDocente">
-      <soap12:operation soapAction="http://galileo.edu/dynamicsax/facturas/infoBancariaDocente" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/infoBancariaDocente" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -502,7 +831,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="validaEsDocente">
-      <soap12:operation soapAction="http://galileo.edu/dynamicsax/facturas/validaEsDocente" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/validaEsDocente" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -511,7 +840,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="agregarExension">
-      <soap12:operation soapAction="http://galileo.edu/dynamicsax/facturas/agregarExension" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/agregarExension" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -520,7 +849,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="infoPagoFacturacion">
-      <soap12:operation soapAction="http://galileo.edu/dynamicsax/facturas/infoPagoFacturacion" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/infoPagoFacturacion" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -529,7 +858,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="infoPagoDetalle">
-      <soap12:operation soapAction="http://galileo.edu/dynamicsax/facturas/infoPagoDetalle" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/infoPagoDetalle" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -538,7 +867,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="insertHpagos">
-      <soap12:operation soapAction="http://galileo.edu/dynamicsax/facturas/insertHpagos" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/insertHpagos" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -547,7 +876,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="insertHpagosUgaDetalle">
-      <soap12:operation soapAction="http://galileo.edu/dynamicsax/facturas/insertHpagosUgaDetalle" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/insertHpagosUgaDetalle" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -556,7 +885,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="deletePagosUgaDetalle">
-      <soap12:operation soapAction="http://galileo.edu/dynamicsax/facturas/deletePagosUgaDetalle" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/deletePagosUgaDetalle" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -565,12 +894,234 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="deletePagosUga">
-      <soap12:operation soapAction="http://galileo.edu/dynamicsax/facturas/deletePagosUga" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/deletePagosUga" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSFacturasHttpGet" type="tns:WSFacturasHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="agregarFactura">
+      <http:operation location="/agregarFactura" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validarFactura">
+      <http:operation location="/validarFactura" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validarFacturaNit">
+      <http:operation location="/validarFacturaNit" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="infoBancariaDocente">
+      <http:operation location="/infoBancariaDocente" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validaEsDocente">
+      <http:operation location="/validaEsDocente" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="agregarExension">
+      <http:operation location="/agregarExension" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="infoPagoFacturacion">
+      <http:operation location="/infoPagoFacturacion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="infoPagoDetalle">
+      <http:operation location="/infoPagoDetalle" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertHpagos">
+      <http:operation location="/insertHpagos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertHpagosUgaDetalle">
+      <http:operation location="/insertHpagosUgaDetalle" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePagosUgaDetalle">
+      <http:operation location="/deletePagosUgaDetalle" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePagosUga">
+      <http:operation location="/deletePagosUga" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSFacturasHttpPost" type="tns:WSFacturasHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="agregarFactura">
+      <http:operation location="/agregarFactura" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validarFactura">
+      <http:operation location="/validarFactura" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validarFacturaNit">
+      <http:operation location="/validarFacturaNit" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="infoBancariaDocente">
+      <http:operation location="/infoBancariaDocente" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validaEsDocente">
+      <http:operation location="/validaEsDocente" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="agregarExension">
+      <http:operation location="/agregarExension" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="infoPagoFacturacion">
+      <http:operation location="/infoPagoFacturacion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="infoPagoDetalle">
+      <http:operation location="/infoPagoDetalle" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertHpagos">
+      <http:operation location="/insertHpagos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertHpagosUgaDetalle">
+      <http:operation location="/insertHpagosUgaDetalle" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePagosUgaDetalle">
+      <http:operation location="/deletePagosUgaDetalle" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePagosUga">
+      <http:operation location="/deletePagosUga" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
@@ -580,6 +1131,12 @@
     </wsdl:port>
     <wsdl:port name="WSFacturasSoap12" binding="tns:WSFacturasSoap12">
       <soap12:address location="http://10.0.3.71/ws/WSFacturas.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSFacturasHttpGet" binding="tns:WSFacturasHttpGet">
+      <http:address location="http://10.0.3.71/ws/WSFacturas.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSFacturasHttpPost" binding="tns:WSFacturasHttpPost">
+      <http:address location="http://10.0.3.71/ws/WSFacturas.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
