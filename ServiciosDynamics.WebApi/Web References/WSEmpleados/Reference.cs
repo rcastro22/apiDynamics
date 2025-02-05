@@ -14,16 +14,16 @@
 #pragma warning disable 1591
 
 namespace ServiciosDynamics.WebApi.WSEmpleados {
-    using System;
-    using System.Web.Services;
     using System.Diagnostics;
-    using System.Web.Services.Protocols;
+    using System;
     using System.Xml.Serialization;
     using System.ComponentModel;
+    using System.Web.Services.Protocols;
+    using System.Web.Services;
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="WSEmpleadosSoap", Namespace="http://tempuri.org/")]
@@ -36,6 +36,8 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
         private System.Threading.SendOrPostCallback delfamiliaresOperationCompleted;
         
         private System.Threading.SendOrPostCallback updEmplInfoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback fechaDPIOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -86,6 +88,9 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
         
         /// <remarks/>
         public event updEmplInfoCompletedEventHandler updEmplInfoCompleted;
+        
+        /// <remarks/>
+        public event fechaDPICompletedEventHandler fechaDPICompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/existeEmpleado", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -220,6 +225,35 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/fechaDPI", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string fechaDPI(string _cui) {
+            object[] results = this.Invoke("fechaDPI", new object[] {
+                        _cui});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void fechaDPIAsync(string _cui) {
+            this.fechaDPIAsync(_cui, null);
+        }
+        
+        /// <remarks/>
+        public void fechaDPIAsync(string _cui, object userState) {
+            if ((this.fechaDPIOperationCompleted == null)) {
+                this.fechaDPIOperationCompleted = new System.Threading.SendOrPostCallback(this.OnfechaDPIOperationCompleted);
+            }
+            this.InvokeAsync("fechaDPI", new object[] {
+                        _cui}, this.fechaDPIOperationCompleted, userState);
+        }
+        
+        private void OnfechaDPIOperationCompleted(object arg) {
+            if ((this.fechaDPICompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.fechaDPICompleted(this, new fechaDPICompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -239,11 +273,11 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void existeEmpleadoCompletedEventHandler(object sender, existeEmpleadoCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class existeEmpleadoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -265,11 +299,11 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void familiaresCompletedEventHandler(object sender, familiaresCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class familiaresCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -291,11 +325,11 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void delfamiliaresCompletedEventHandler(object sender, delfamiliaresCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class delfamiliaresCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -317,11 +351,11 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void updEmplInfoCompletedEventHandler(object sender, updEmplInfoCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class updEmplInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -329,6 +363,32 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
         private object[] results;
         
         internal updEmplInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void fechaDPICompletedEventHandler(object sender, fechaDPICompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class fechaDPICompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal fechaDPICompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

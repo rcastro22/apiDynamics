@@ -139,6 +139,36 @@ namespace ServiciosDynamics.WebApi.Controllers
             }
         }
 
+
+        /// <summary>
+        /// Obtiene los tramites de empleados nuevos
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("fechadpi")]
+        public async Task<IHttpActionResult> FechaDPI([FromUri] string cui)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                WSEmpleados.WSEmpleados ws = new WSEmpleados.WSEmpleados();
+                string fechaDpi = "";
+
+                fechaDpi = ws.fechaDPI(cui);
+
+                return Ok(fechaDpi);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
         /// <summary>
         /// Obtiene los tramites de empleados nuevos
         /// </summary>

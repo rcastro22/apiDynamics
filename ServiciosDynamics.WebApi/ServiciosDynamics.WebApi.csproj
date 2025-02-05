@@ -499,10 +499,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>ServiciosDynamics_WebApi_WSDGArchivo_WSDGArchivo</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://srvdynamicsdesa/ws/WSEmpleados.asmx">
+    <WebReferenceUrl Include="http://10.0.3.71/ws/WSEmpleados.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WSEmpleados\</RelPath>
-      <UpdateFromURL>http://srvdynamicsdesa/ws/WSEmpleados.asmx</UpdateFromURL>
+      <UpdateFromURL>http://10.0.3.71/ws/WSEmpleados.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
