@@ -179,14 +179,15 @@ namespace ServiciosDynamics.WebApi.Controllers
 
                     response.EnsureSuccessStatusCode();
 
-                    var res = JsonConvert.DeserializeObject(response.Content.ReadAsStringAsync().Result);
+                    //var res = JsonConvert.DeserializeObject(response.Content.ReadAsStringAsync().Result);
                 }
                 return Ok(true);
 
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                //return BadRequest(ex.Message);
+                return Ok(false);
             }
         }
     }
