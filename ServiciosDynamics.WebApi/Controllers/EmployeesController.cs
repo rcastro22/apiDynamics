@@ -141,7 +141,7 @@ namespace ServiciosDynamics.WebApi.Controllers
 
 
         /// <summary>
-        /// Obtiene los tramites de empleados nuevos
+        /// Obtiene la fecha de actualización del DPI
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -159,6 +159,36 @@ namespace ServiciosDynamics.WebApi.Controllers
                 string fechaDpi = "";
 
                 fechaDpi = ws.fechaDPI(cui);
+
+                return Ok(fechaDpi);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// Obtiene la fecha de actualización del DPI
+        /// </summary>
+        /// <returns></returns>        
+
+        [HttpPost]
+        [Route("eliminafechadpi")]
+        public async Task<IHttpActionResult> FechaDPIDelete([FromBody] CuiModel cuiModel)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                WSEmpleados.WSEmpleados ws = new WSEmpleados.WSEmpleados();
+                string fechaDpi = "";
+
+                fechaDpi = ws.fechaDPIDelete(cuiModel.Cui);
 
                 return Ok(fechaDpi);
             }

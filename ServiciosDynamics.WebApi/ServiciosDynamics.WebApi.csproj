@@ -179,6 +179,7 @@
     <Compile Include="Models\Employees\DataSolicitud.cs" />
     <Compile Include="Models\Employees\Buscar_Result.cs" />
     <Compile Include="Models\Employees\DatosEmplVac_Result.cs" />
+    <Compile Include="Models\Employees\CuiModel.cs" />
     <Compile Include="Models\Employees\GenerarVacModel.cs" />
     <Compile Include="Models\Employees\PeriodosVac_Result.cs" />
     <Compile Include="Models\Employees\PeriodosVacModel.cs" />

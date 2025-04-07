@@ -39,6 +39,8 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
         
         private System.Threading.SendOrPostCallback fechaDPIOperationCompleted;
         
+        private System.Threading.SendOrPostCallback fechaDPIDeleteOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -91,6 +93,9 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
         
         /// <remarks/>
         public event fechaDPICompletedEventHandler fechaDPICompleted;
+        
+        /// <remarks/>
+        public event fechaDPIDeleteCompletedEventHandler fechaDPIDeleteCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/existeEmpleado", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -254,6 +259,35 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/fechaDPIDelete", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string fechaDPIDelete(string _cui) {
+            object[] results = this.Invoke("fechaDPIDelete", new object[] {
+                        _cui});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void fechaDPIDeleteAsync(string _cui) {
+            this.fechaDPIDeleteAsync(_cui, null);
+        }
+        
+        /// <remarks/>
+        public void fechaDPIDeleteAsync(string _cui, object userState) {
+            if ((this.fechaDPIDeleteOperationCompleted == null)) {
+                this.fechaDPIDeleteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnfechaDPIDeleteOperationCompleted);
+            }
+            this.InvokeAsync("fechaDPIDelete", new object[] {
+                        _cui}, this.fechaDPIDeleteOperationCompleted, userState);
+        }
+        
+        private void OnfechaDPIDeleteOperationCompleted(object arg) {
+            if ((this.fechaDPIDeleteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.fechaDPIDeleteCompleted(this, new fechaDPIDeleteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -389,6 +423,32 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
         private object[] results;
         
         internal fechaDPICompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void fechaDPIDeleteCompletedEventHandler(object sender, fechaDPIDeleteCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class fechaDPIDeleteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal fechaDPIDeleteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
