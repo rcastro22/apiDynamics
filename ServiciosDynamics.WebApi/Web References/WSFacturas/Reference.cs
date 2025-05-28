@@ -130,7 +130,7 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/agregarFactura", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string agregarFactura(string _proveedor, string _facturaserie, string _facturanumero, string _fechafactura, string _descripcion, decimal _monto, string _iddetalle, int _typeStaff, string _usuariooracle, string _noTramite) {
+        public string agregarFactura(string _proveedor, string _facturaserie, string _facturanumero, string _fechafactura, string _descripcion, decimal _monto, string _iddetalle, int _typeStaff, string _usuariooracle, string _noTramite, string _autorizacion) {
             object[] results = this.Invoke("agregarFactura", new object[] {
                         _proveedor,
                         _facturaserie,
@@ -141,17 +141,18 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
                         _iddetalle,
                         _typeStaff,
                         _usuariooracle,
-                        _noTramite});
+                        _noTramite,
+                        _autorizacion});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void agregarFacturaAsync(string _proveedor, string _facturaserie, string _facturanumero, string _fechafactura, string _descripcion, decimal _monto, string _iddetalle, int _typeStaff, string _usuariooracle, string _noTramite) {
-            this.agregarFacturaAsync(_proveedor, _facturaserie, _facturanumero, _fechafactura, _descripcion, _monto, _iddetalle, _typeStaff, _usuariooracle, _noTramite, null);
+        public void agregarFacturaAsync(string _proveedor, string _facturaserie, string _facturanumero, string _fechafactura, string _descripcion, decimal _monto, string _iddetalle, int _typeStaff, string _usuariooracle, string _noTramite, string _autorizacion) {
+            this.agregarFacturaAsync(_proveedor, _facturaserie, _facturanumero, _fechafactura, _descripcion, _monto, _iddetalle, _typeStaff, _usuariooracle, _noTramite, _autorizacion, null);
         }
         
         /// <remarks/>
-        public void agregarFacturaAsync(string _proveedor, string _facturaserie, string _facturanumero, string _fechafactura, string _descripcion, decimal _monto, string _iddetalle, int _typeStaff, string _usuariooracle, string _noTramite, object userState) {
+        public void agregarFacturaAsync(string _proveedor, string _facturaserie, string _facturanumero, string _fechafactura, string _descripcion, decimal _monto, string _iddetalle, int _typeStaff, string _usuariooracle, string _noTramite, string _autorizacion, object userState) {
             if ((this.agregarFacturaOperationCompleted == null)) {
                 this.agregarFacturaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnagregarFacturaOperationCompleted);
             }
@@ -165,7 +166,8 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
                         _iddetalle,
                         _typeStaff,
                         _usuariooracle,
-                        _noTramite}, this.agregarFacturaOperationCompleted, userState);
+                        _noTramite,
+                        _autorizacion}, this.agregarFacturaOperationCompleted, userState);
         }
         
         private void OnagregarFacturaOperationCompleted(object arg) {

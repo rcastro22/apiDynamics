@@ -46,7 +46,8 @@ namespace ServiciosDynamics.WebApi.Controllers
                     invoiceData.id_detalle,
                     invoiceData.type_staff,
                     invoiceData.usuario_oracle,
-                    invoiceData.no_tramite ?? ""
+                    invoiceData.no_tramite ?? "",
+                    invoiceData.autorizacion ?? ""
                     );
 
                 if(ret == "Correcto")
