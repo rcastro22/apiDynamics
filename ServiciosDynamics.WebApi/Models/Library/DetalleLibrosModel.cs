@@ -12,5 +12,8 @@ namespace ServiciosDynamics.WebApi.Models.Library
 
         [Required]
         public string almacen { get; set; }
+
+        [Required]
+        public float monto { get; set; }
     }
 }

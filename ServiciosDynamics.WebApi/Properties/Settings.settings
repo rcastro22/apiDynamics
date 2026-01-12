@@ -21,7 +21,7 @@
       <Value Profile="(Default)">http://10.0.3.71/ws/WSEmpleados.asmx</Value>
     </Setting>
     <Setting Name="ServiciosDynamics_WebApi_WSLibreria_WSLibreria" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://10.0.3.71/WSLibreria.asmx</Value>
+      <Value Profile="(Default)">http://10.0.3.71/ws/WSLibreria.asmx</Value>
     </Setting>
     <Setting Name="ServiciosDynamics_WebApi_WSVacaciones_WSVacaciones" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://10.0.3.71/ws/wsvacaciones.asmx</Value>

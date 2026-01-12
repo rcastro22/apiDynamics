@@ -478,10 +478,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>ServiciosDynamics_WebApi_WSVacaciones_WSVacaciones</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:13826/WSLibreria.asmx">
+    <WebReferenceUrl Include="http://10.0.3.71/ws/WSLibreria.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WSLibreria\</RelPath>
-      <UpdateFromURL>http://localhost:13826/WSLibreria.asmx</UpdateFromURL>
+      <UpdateFromURL>http://10.0.3.71/ws/WSLibreria.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
