@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=2.0.20.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.Net45.2.0.20\lib\net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
     </Reference>
@@ -158,6 +161,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\DGArchivoController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\FacturasSATController.cs" />
     <Compile Include="Controllers\GeneraReciboController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngresosController.cs" />
@@ -189,6 +193,8 @@
     <Compile Include="Models\Employees\Solicitudes_Result.cs" />
     <Compile Include="Models\Employees\EmplTableModel.cs" />
     <Compile Include="Models\Employees\Familiares.cs" />
+    <Compile Include="Models\FacturaSat\FacturasModel.cs" />
+    <Compile Include="Models\FacturaSat\Facturas_Result.cs" />
     <Compile Include="Models\Ingresos\ConceptoFaltante_Result.cs" />
     <Compile Include="Models\Ingresos\IngresosConceptos_Result.cs" />
     <Compile Include="Models\Ingresos\IngresosConceptosModel.cs" />
@@ -406,6 +412,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\FacturasSAT\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.min.css.map" />

@@ -24,7 +24,7 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="WSFacturasSoap", Namespace="http://tempuri.org/")]
@@ -41,6 +41,16 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         private System.Threading.SendOrPostCallback validaEsDocenteOperationCompleted;
         
         private System.Threading.SendOrPostCallback agregarExensionOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback trasladoFacturasOracleOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback obtenerTokenSATOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback guardarTokenSATOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback obtenerContraseniaSATOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback obtenerDelegadoSATOperationCompleted;
         
         private System.Threading.SendOrPostCallback infoPagoFacturacionOperationCompleted;
         
@@ -109,6 +119,21 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         
         /// <remarks/>
         public event agregarExensionCompletedEventHandler agregarExensionCompleted;
+        
+        /// <remarks/>
+        public event trasladoFacturasOracleCompletedEventHandler trasladoFacturasOracleCompleted;
+        
+        /// <remarks/>
+        public event obtenerTokenSATCompletedEventHandler obtenerTokenSATCompleted;
+        
+        /// <remarks/>
+        public event guardarTokenSATCompletedEventHandler guardarTokenSATCompleted;
+        
+        /// <remarks/>
+        public event obtenerContraseniaSATCompletedEventHandler obtenerContraseniaSATCompleted;
+        
+        /// <remarks/>
+        public event obtenerDelegadoSATCompletedEventHandler obtenerDelegadoSATCompleted;
         
         /// <remarks/>
         public event infoPagoFacturacionCompletedEventHandler infoPagoFacturacionCompleted;
@@ -343,6 +368,155 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/trasladoFacturasOracle", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string trasladoFacturasOracle(string[] RecsInvoice) {
+            object[] results = this.Invoke("trasladoFacturasOracle", new object[] {
+                        RecsInvoice});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void trasladoFacturasOracleAsync(string[] RecsInvoice) {
+            this.trasladoFacturasOracleAsync(RecsInvoice, null);
+        }
+        
+        /// <remarks/>
+        public void trasladoFacturasOracleAsync(string[] RecsInvoice, object userState) {
+            if ((this.trasladoFacturasOracleOperationCompleted == null)) {
+                this.trasladoFacturasOracleOperationCompleted = new System.Threading.SendOrPostCallback(this.OntrasladoFacturasOracleOperationCompleted);
+            }
+            this.InvokeAsync("trasladoFacturasOracle", new object[] {
+                        RecsInvoice}, this.trasladoFacturasOracleOperationCompleted, userState);
+        }
+        
+        private void OntrasladoFacturasOracleOperationCompleted(object arg) {
+            if ((this.trasladoFacturasOracleCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.trasladoFacturasOracleCompleted(this, new trasladoFacturasOracleCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/obtenerTokenSAT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string obtenerTokenSAT(string _user) {
+            object[] results = this.Invoke("obtenerTokenSAT", new object[] {
+                        _user});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void obtenerTokenSATAsync(string _user) {
+            this.obtenerTokenSATAsync(_user, null);
+        }
+        
+        /// <remarks/>
+        public void obtenerTokenSATAsync(string _user, object userState) {
+            if ((this.obtenerTokenSATOperationCompleted == null)) {
+                this.obtenerTokenSATOperationCompleted = new System.Threading.SendOrPostCallback(this.OnobtenerTokenSATOperationCompleted);
+            }
+            this.InvokeAsync("obtenerTokenSAT", new object[] {
+                        _user}, this.obtenerTokenSATOperationCompleted, userState);
+        }
+        
+        private void OnobtenerTokenSATOperationCompleted(object arg) {
+            if ((this.obtenerTokenSATCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.obtenerTokenSATCompleted(this, new obtenerTokenSATCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/guardarTokenSAT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string guardarTokenSAT(string _user, string _token, System.DateTime _expires) {
+            object[] results = this.Invoke("guardarTokenSAT", new object[] {
+                        _user,
+                        _token,
+                        _expires});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void guardarTokenSATAsync(string _user, string _token, System.DateTime _expires) {
+            this.guardarTokenSATAsync(_user, _token, _expires, null);
+        }
+        
+        /// <remarks/>
+        public void guardarTokenSATAsync(string _user, string _token, System.DateTime _expires, object userState) {
+            if ((this.guardarTokenSATOperationCompleted == null)) {
+                this.guardarTokenSATOperationCompleted = new System.Threading.SendOrPostCallback(this.OnguardarTokenSATOperationCompleted);
+            }
+            this.InvokeAsync("guardarTokenSAT", new object[] {
+                        _user,
+                        _token,
+                        _expires}, this.guardarTokenSATOperationCompleted, userState);
+        }
+        
+        private void OnguardarTokenSATOperationCompleted(object arg) {
+            if ((this.guardarTokenSATCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.guardarTokenSATCompleted(this, new guardarTokenSATCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/obtenerContraseniaSAT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string obtenerContraseniaSAT(string _user) {
+            object[] results = this.Invoke("obtenerContraseniaSAT", new object[] {
+                        _user});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void obtenerContraseniaSATAsync(string _user) {
+            this.obtenerContraseniaSATAsync(_user, null);
+        }
+        
+        /// <remarks/>
+        public void obtenerContraseniaSATAsync(string _user, object userState) {
+            if ((this.obtenerContraseniaSATOperationCompleted == null)) {
+                this.obtenerContraseniaSATOperationCompleted = new System.Threading.SendOrPostCallback(this.OnobtenerContraseniaSATOperationCompleted);
+            }
+            this.InvokeAsync("obtenerContraseniaSAT", new object[] {
+                        _user}, this.obtenerContraseniaSATOperationCompleted, userState);
+        }
+        
+        private void OnobtenerContraseniaSATOperationCompleted(object arg) {
+            if ((this.obtenerContraseniaSATCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.obtenerContraseniaSATCompleted(this, new obtenerContraseniaSATCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/obtenerDelegadoSAT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string obtenerDelegadoSAT(string _user) {
+            object[] results = this.Invoke("obtenerDelegadoSAT", new object[] {
+                        _user});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void obtenerDelegadoSATAsync(string _user) {
+            this.obtenerDelegadoSATAsync(_user, null);
+        }
+        
+        /// <remarks/>
+        public void obtenerDelegadoSATAsync(string _user, object userState) {
+            if ((this.obtenerDelegadoSATOperationCompleted == null)) {
+                this.obtenerDelegadoSATOperationCompleted = new System.Threading.SendOrPostCallback(this.OnobtenerDelegadoSATOperationCompleted);
+            }
+            this.InvokeAsync("obtenerDelegadoSAT", new object[] {
+                        _user}, this.obtenerDelegadoSATOperationCompleted, userState);
+        }
+        
+        private void OnobtenerDelegadoSATOperationCompleted(object arg) {
+            if ((this.obtenerDelegadoSATCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.obtenerDelegadoSATCompleted(this, new obtenerDelegadoSATCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/infoPagoFacturacion", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataTable infoPagoFacturacion(string _origen, string _fecha) {
             object[] results = this.Invoke("infoPagoFacturacion", new object[] {
@@ -548,11 +722,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void agregarFacturaCompletedEventHandler(object sender, agregarFacturaCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class agregarFacturaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -574,11 +748,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void validarFacturaCompletedEventHandler(object sender, validarFacturaCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class validarFacturaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -600,11 +774,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void validarFacturaNitCompletedEventHandler(object sender, validarFacturaNitCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class validarFacturaNitCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -626,11 +800,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void infoBancariaDocenteCompletedEventHandler(object sender, infoBancariaDocenteCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class infoBancariaDocenteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -652,11 +826,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void validaEsDocenteCompletedEventHandler(object sender, validaEsDocenteCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class validaEsDocenteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -678,11 +852,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void agregarExensionCompletedEventHandler(object sender, agregarExensionCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class agregarExensionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -704,11 +878,141 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void trasladoFacturasOracleCompletedEventHandler(object sender, trasladoFacturasOracleCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class trasladoFacturasOracleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal trasladoFacturasOracleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void obtenerTokenSATCompletedEventHandler(object sender, obtenerTokenSATCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class obtenerTokenSATCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal obtenerTokenSATCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void guardarTokenSATCompletedEventHandler(object sender, guardarTokenSATCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class guardarTokenSATCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal guardarTokenSATCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void obtenerContraseniaSATCompletedEventHandler(object sender, obtenerContraseniaSATCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class obtenerContraseniaSATCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal obtenerContraseniaSATCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void obtenerDelegadoSATCompletedEventHandler(object sender, obtenerDelegadoSATCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class obtenerDelegadoSATCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal obtenerDelegadoSATCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void infoPagoFacturacionCompletedEventHandler(object sender, infoPagoFacturacionCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class infoPagoFacturacionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -730,11 +1034,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void infoPagoDetalleCompletedEventHandler(object sender, infoPagoDetalleCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class infoPagoDetalleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -756,11 +1060,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void insertHpagosCompletedEventHandler(object sender, insertHpagosCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class insertHpagosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -782,11 +1086,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void insertHpagosUgaDetalleCompletedEventHandler(object sender, insertHpagosUgaDetalleCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class insertHpagosUgaDetalleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -808,11 +1112,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void deletePagosUgaDetalleCompletedEventHandler(object sender, deletePagosUgaDetalleCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class deletePagosUgaDetalleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -834,11 +1138,11 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void deletePagosUgaCompletedEventHandler(object sender, deletePagosUgaCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class deletePagosUgaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {

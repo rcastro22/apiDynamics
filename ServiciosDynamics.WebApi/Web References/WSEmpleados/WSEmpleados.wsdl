@@ -94,6 +94,35 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="obtenerFotoEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_correlativo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerFotoEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obtenerFotoEmpleadoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="actualiza_correlativo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_emplId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_correlativo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="actualiza_correlativoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="actualiza_correlativoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="string" nillable="true" type="s:string" />
     </s:schema>
   </wsdl:types>
@@ -132,6 +161,18 @@
   </wsdl:message>
   <wsdl:message name="fechaDPIDeleteSoapOut">
     <wsdl:part name="parameters" element="tns:fechaDPIDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenerFotoEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerFotoEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="obtenerFotoEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerFotoEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="actualiza_correlativoSoapIn">
+    <wsdl:part name="parameters" element="tns:actualiza_correlativo" />
+  </wsdl:message>
+  <wsdl:message name="actualiza_correlativoSoapOut">
+    <wsdl:part name="parameters" element="tns:actualiza_correlativoResponse" />
   </wsdl:message>
   <wsdl:message name="existeEmpleadoHttpGetIn">
     <wsdl:part name="_emplId" type="s:string" />
@@ -175,6 +216,19 @@
     <wsdl:part name="_cui" type="s:string" />
   </wsdl:message>
   <wsdl:message name="fechaDPIDeleteHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerFotoEmpleadoHttpGetIn">
+    <wsdl:part name="_correlativo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerFotoEmpleadoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="actualiza_correlativoHttpGetIn">
+    <wsdl:part name="_emplId" type="s:string" />
+    <wsdl:part name="_correlativo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="actualiza_correlativoHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="existeEmpleadoHttpPostIn">
@@ -221,6 +275,19 @@
   <wsdl:message name="fechaDPIDeleteHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
+  <wsdl:message name="obtenerFotoEmpleadoHttpPostIn">
+    <wsdl:part name="_correlativo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerFotoEmpleadoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="actualiza_correlativoHttpPostIn">
+    <wsdl:part name="_emplId" type="s:string" />
+    <wsdl:part name="_correlativo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="actualiza_correlativoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:portType name="WSEmpleadosSoap">
     <wsdl:operation name="existeEmpleado">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida que el empleado exista</wsdl:documentation>
@@ -251,6 +318,16 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Elimina la fecha de actualizacion de DPI</wsdl:documentation>
       <wsdl:input message="tns:fechaDPIDeleteSoapIn" />
       <wsdl:output message="tns:fechaDPIDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerFotoEmpleado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener foto desde oracle</wsdl:documentation>
+      <wsdl:input message="tns:obtenerFotoEmpleadoSoapIn" />
+      <wsdl:output message="tns:obtenerFotoEmpleadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="actualiza_correlativo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualizar codigo de correlativo según id de empleado</wsdl:documentation>
+      <wsdl:input message="tns:actualiza_correlativoSoapIn" />
+      <wsdl:output message="tns:actualiza_correlativoSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="WSEmpleadosHttpGet">
@@ -284,6 +361,16 @@
       <wsdl:input message="tns:fechaDPIDeleteHttpGetIn" />
       <wsdl:output message="tns:fechaDPIDeleteHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="obtenerFotoEmpleado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener foto desde oracle</wsdl:documentation>
+      <wsdl:input message="tns:obtenerFotoEmpleadoHttpGetIn" />
+      <wsdl:output message="tns:obtenerFotoEmpleadoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="actualiza_correlativo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualizar codigo de correlativo según id de empleado</wsdl:documentation>
+      <wsdl:input message="tns:actualiza_correlativoHttpGetIn" />
+      <wsdl:output message="tns:actualiza_correlativoHttpGetOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="WSEmpleadosHttpPost">
     <wsdl:operation name="existeEmpleado">
@@ -315,6 +402,16 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Elimina la fecha de actualizacion de DPI</wsdl:documentation>
       <wsdl:input message="tns:fechaDPIDeleteHttpPostIn" />
       <wsdl:output message="tns:fechaDPIDeleteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerFotoEmpleado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener foto desde oracle</wsdl:documentation>
+      <wsdl:input message="tns:obtenerFotoEmpleadoHttpPostIn" />
+      <wsdl:output message="tns:obtenerFotoEmpleadoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="actualiza_correlativo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualizar codigo de correlativo según id de empleado</wsdl:documentation>
+      <wsdl:input message="tns:actualiza_correlativoHttpPostIn" />
+      <wsdl:output message="tns:actualiza_correlativoHttpPostOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSEmpleadosSoap" type="tns:WSEmpleadosSoap">
@@ -366,6 +463,24 @@
     </wsdl:operation>
     <wsdl:operation name="fechaDPIDelete">
       <soap:operation soapAction="http://tempuri.org/fechaDPIDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerFotoEmpleado">
+      <soap:operation soapAction="http://tempuri.org/obtenerFotoEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualiza_correlativo">
+      <soap:operation soapAction="http://tempuri.org/actualiza_correlativo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -430,6 +545,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="obtenerFotoEmpleado">
+      <soap12:operation soapAction="http://tempuri.org/obtenerFotoEmpleado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualiza_correlativo">
+      <soap12:operation soapAction="http://tempuri.org/actualiza_correlativo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WSEmpleadosHttpGet" type="tns:WSEmpleadosHttpGet">
     <http:binding verb="GET" />
@@ -487,6 +620,24 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="obtenerFotoEmpleado">
+      <http:operation location="/obtenerFotoEmpleado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualiza_correlativo">
+      <http:operation location="/actualiza_correlativo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WSEmpleadosHttpPost" type="tns:WSEmpleadosHttpPost">
     <http:binding verb="POST" />
@@ -537,6 +688,24 @@
     </wsdl:operation>
     <wsdl:operation name="fechaDPIDelete">
       <http:operation location="/fechaDPIDelete" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerFotoEmpleado">
+      <http:operation location="/obtenerFotoEmpleado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualiza_correlativo">
+      <http:operation location="/actualiza_correlativo" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>

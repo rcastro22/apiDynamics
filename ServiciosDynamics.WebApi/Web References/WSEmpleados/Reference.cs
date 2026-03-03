@@ -23,7 +23,7 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="WSEmpleadosSoap", Namespace="http://tempuri.org/")]
@@ -40,6 +40,10 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
         private System.Threading.SendOrPostCallback fechaDPIOperationCompleted;
         
         private System.Threading.SendOrPostCallback fechaDPIDeleteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback obtenerFotoEmpleadoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback actualiza_correlativoOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -96,6 +100,12 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
         
         /// <remarks/>
         public event fechaDPIDeleteCompletedEventHandler fechaDPIDeleteCompleted;
+        
+        /// <remarks/>
+        public event obtenerFotoEmpleadoCompletedEventHandler obtenerFotoEmpleadoCompleted;
+        
+        /// <remarks/>
+        public event actualiza_correlativoCompletedEventHandler actualiza_correlativoCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/existeEmpleado", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -288,6 +298,66 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/obtenerFotoEmpleado", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string obtenerFotoEmpleado(string _correlativo) {
+            object[] results = this.Invoke("obtenerFotoEmpleado", new object[] {
+                        _correlativo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void obtenerFotoEmpleadoAsync(string _correlativo) {
+            this.obtenerFotoEmpleadoAsync(_correlativo, null);
+        }
+        
+        /// <remarks/>
+        public void obtenerFotoEmpleadoAsync(string _correlativo, object userState) {
+            if ((this.obtenerFotoEmpleadoOperationCompleted == null)) {
+                this.obtenerFotoEmpleadoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnobtenerFotoEmpleadoOperationCompleted);
+            }
+            this.InvokeAsync("obtenerFotoEmpleado", new object[] {
+                        _correlativo}, this.obtenerFotoEmpleadoOperationCompleted, userState);
+        }
+        
+        private void OnobtenerFotoEmpleadoOperationCompleted(object arg) {
+            if ((this.obtenerFotoEmpleadoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.obtenerFotoEmpleadoCompleted(this, new obtenerFotoEmpleadoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/actualiza_correlativo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string actualiza_correlativo(string _emplId, string _correlativo) {
+            object[] results = this.Invoke("actualiza_correlativo", new object[] {
+                        _emplId,
+                        _correlativo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void actualiza_correlativoAsync(string _emplId, string _correlativo) {
+            this.actualiza_correlativoAsync(_emplId, _correlativo, null);
+        }
+        
+        /// <remarks/>
+        public void actualiza_correlativoAsync(string _emplId, string _correlativo, object userState) {
+            if ((this.actualiza_correlativoOperationCompleted == null)) {
+                this.actualiza_correlativoOperationCompleted = new System.Threading.SendOrPostCallback(this.Onactualiza_correlativoOperationCompleted);
+            }
+            this.InvokeAsync("actualiza_correlativo", new object[] {
+                        _emplId,
+                        _correlativo}, this.actualiza_correlativoOperationCompleted, userState);
+        }
+        
+        private void Onactualiza_correlativoOperationCompleted(object arg) {
+            if ((this.actualiza_correlativoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.actualiza_correlativoCompleted(this, new actualiza_correlativoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -307,11 +377,11 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void existeEmpleadoCompletedEventHandler(object sender, existeEmpleadoCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class existeEmpleadoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -333,11 +403,11 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void familiaresCompletedEventHandler(object sender, familiaresCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class familiaresCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -359,11 +429,11 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void delfamiliaresCompletedEventHandler(object sender, delfamiliaresCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class delfamiliaresCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -385,11 +455,11 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void updEmplInfoCompletedEventHandler(object sender, updEmplInfoCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class updEmplInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -411,11 +481,11 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void fechaDPICompletedEventHandler(object sender, fechaDPICompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class fechaDPICompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -437,11 +507,11 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void fechaDPIDeleteCompletedEventHandler(object sender, fechaDPIDeleteCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class fechaDPIDeleteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -449,6 +519,58 @@ namespace ServiciosDynamics.WebApi.WSEmpleados {
         private object[] results;
         
         internal fechaDPIDeleteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void obtenerFotoEmpleadoCompletedEventHandler(object sender, obtenerFotoEmpleadoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class obtenerFotoEmpleadoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal obtenerFotoEmpleadoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void actualiza_correlativoCompletedEventHandler(object sender, actualiza_correlativoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class actualiza_correlativoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal actualiza_correlativoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s1="http://tempuri.org/AbstractTypes" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
       <s:element name="agregarFactura">
@@ -110,6 +110,83 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="agregarExensionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="trasladoFacturasOracle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecsInvoice" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="trasladoFacturasOracleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="trasladoFacturasOracleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerTokenSAT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerTokenSATResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obtenerTokenSATResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="guardarTokenSAT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_token" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="_expires" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="guardarTokenSATResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="guardarTokenSATResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerContraseniaSAT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerContraseniaSATResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obtenerContraseniaSATResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerDelegadoSAT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerDelegadoSATResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obtenerDelegadoSATResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -229,6 +306,18 @@
       </s:element>
       <s:element name="int" type="s:int" />
     </s:schema>
+    <s:schema targetNamespace="http://tempuri.org/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
   </wsdl:types>
   <wsdl:message name="agregarFacturaSoapIn">
     <wsdl:part name="parameters" element="tns:agregarFactura" />
@@ -265,6 +354,36 @@
   </wsdl:message>
   <wsdl:message name="agregarExensionSoapOut">
     <wsdl:part name="parameters" element="tns:agregarExensionResponse" />
+  </wsdl:message>
+  <wsdl:message name="trasladoFacturasOracleSoapIn">
+    <wsdl:part name="parameters" element="tns:trasladoFacturasOracle" />
+  </wsdl:message>
+  <wsdl:message name="trasladoFacturasOracleSoapOut">
+    <wsdl:part name="parameters" element="tns:trasladoFacturasOracleResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenerTokenSATSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerTokenSAT" />
+  </wsdl:message>
+  <wsdl:message name="obtenerTokenSATSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerTokenSATResponse" />
+  </wsdl:message>
+  <wsdl:message name="guardarTokenSATSoapIn">
+    <wsdl:part name="parameters" element="tns:guardarTokenSAT" />
+  </wsdl:message>
+  <wsdl:message name="guardarTokenSATSoapOut">
+    <wsdl:part name="parameters" element="tns:guardarTokenSATResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenerContraseniaSATSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerContraseniaSAT" />
+  </wsdl:message>
+  <wsdl:message name="obtenerContraseniaSATSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerContraseniaSATResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDelegadoSATSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerDelegadoSAT" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDelegadoSATSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerDelegadoSATResponse" />
   </wsdl:message>
   <wsdl:message name="infoPagoFacturacionSoapIn">
     <wsdl:part name="parameters" element="tns:infoPagoFacturacion" />
@@ -356,6 +475,38 @@
     <wsdl:part name="_certificadorId" type="s:string" />
   </wsdl:message>
   <wsdl:message name="agregarExensionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="trasladoFacturasOracleHttpGetIn">
+    <wsdl:part name="RecsInvoice" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="trasladoFacturasOracleHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerTokenSATHttpGetIn">
+    <wsdl:part name="_user" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerTokenSATHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="guardarTokenSATHttpGetIn">
+    <wsdl:part name="_user" type="s:string" />
+    <wsdl:part name="_token" type="s:string" />
+    <wsdl:part name="_expires" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="guardarTokenSATHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerContraseniaSATHttpGetIn">
+    <wsdl:part name="_user" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerContraseniaSATHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDelegadoSATHttpGetIn">
+    <wsdl:part name="_user" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDelegadoSATHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="infoPagoFacturacionHttpGetIn">
@@ -456,6 +607,38 @@
   <wsdl:message name="agregarExensionHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
+  <wsdl:message name="trasladoFacturasOracleHttpPostIn">
+    <wsdl:part name="RecsInvoice" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="trasladoFacturasOracleHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerTokenSATHttpPostIn">
+    <wsdl:part name="_user" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerTokenSATHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="guardarTokenSATHttpPostIn">
+    <wsdl:part name="_user" type="s:string" />
+    <wsdl:part name="_token" type="s:string" />
+    <wsdl:part name="_expires" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="guardarTokenSATHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerContraseniaSATHttpPostIn">
+    <wsdl:part name="_user" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerContraseniaSATHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDelegadoSATHttpPostIn">
+    <wsdl:part name="_user" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDelegadoSATHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="infoPagoFacturacionHttpPostIn">
     <wsdl:part name="_origen" type="s:string" />
     <wsdl:part name="_fecha" type="s:string" />
@@ -529,6 +712,31 @@
       <wsdl:input message="tns:agregarExensionSoapIn" />
       <wsdl:output message="tns:agregarExensionSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="trasladoFacturasOracle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Traslada las facturas de SAT en Dynamics haca Oracle para proceso de Exenciones</wsdl:documentation>
+      <wsdl:input message="tns:trasladoFacturasOracleSoapIn" />
+      <wsdl:output message="tns:trasladoFacturasOracleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTokenSAT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el token de SAT si aun es válido</wsdl:documentation>
+      <wsdl:input message="tns:obtenerTokenSATSoapIn" />
+      <wsdl:output message="tns:obtenerTokenSATSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="guardarTokenSAT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Guarda el token SAT en SQL Server</wsdl:documentation>
+      <wsdl:input message="tns:guardarTokenSATSoapIn" />
+      <wsdl:output message="tns:guardarTokenSATSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerContraseniaSAT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la contraseña del usuario SAT</wsdl:documentation>
+      <wsdl:input message="tns:obtenerContraseniaSATSoapIn" />
+      <wsdl:output message="tns:obtenerContraseniaSATSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDelegadoSAT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la contraseña del usuario SAT</wsdl:documentation>
+      <wsdl:input message="tns:obtenerDelegadoSATSoapIn" />
+      <wsdl:output message="tns:obtenerDelegadoSATSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="infoPagoFacturacion">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la informacion de Pagos por porfacturación</wsdl:documentation>
       <wsdl:input message="tns:infoPagoFacturacionSoapIn" />
@@ -591,6 +799,31 @@
       <wsdl:input message="tns:agregarExensionHttpGetIn" />
       <wsdl:output message="tns:agregarExensionHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="trasladoFacturasOracle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Traslada las facturas de SAT en Dynamics haca Oracle para proceso de Exenciones</wsdl:documentation>
+      <wsdl:input message="tns:trasladoFacturasOracleHttpGetIn" />
+      <wsdl:output message="tns:trasladoFacturasOracleHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTokenSAT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el token de SAT si aun es válido</wsdl:documentation>
+      <wsdl:input message="tns:obtenerTokenSATHttpGetIn" />
+      <wsdl:output message="tns:obtenerTokenSATHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="guardarTokenSAT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Guarda el token SAT en SQL Server</wsdl:documentation>
+      <wsdl:input message="tns:guardarTokenSATHttpGetIn" />
+      <wsdl:output message="tns:guardarTokenSATHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerContraseniaSAT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la contraseña del usuario SAT</wsdl:documentation>
+      <wsdl:input message="tns:obtenerContraseniaSATHttpGetIn" />
+      <wsdl:output message="tns:obtenerContraseniaSATHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDelegadoSAT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la contraseña del usuario SAT</wsdl:documentation>
+      <wsdl:input message="tns:obtenerDelegadoSATHttpGetIn" />
+      <wsdl:output message="tns:obtenerDelegadoSATHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="infoPagoFacturacion">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la informacion de Pagos por porfacturación</wsdl:documentation>
       <wsdl:input message="tns:infoPagoFacturacionHttpGetIn" />
@@ -652,6 +885,31 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Agrega las exenciones de ISR a Dynamics</wsdl:documentation>
       <wsdl:input message="tns:agregarExensionHttpPostIn" />
       <wsdl:output message="tns:agregarExensionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="trasladoFacturasOracle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Traslada las facturas de SAT en Dynamics haca Oracle para proceso de Exenciones</wsdl:documentation>
+      <wsdl:input message="tns:trasladoFacturasOracleHttpPostIn" />
+      <wsdl:output message="tns:trasladoFacturasOracleHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTokenSAT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el token de SAT si aun es válido</wsdl:documentation>
+      <wsdl:input message="tns:obtenerTokenSATHttpPostIn" />
+      <wsdl:output message="tns:obtenerTokenSATHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="guardarTokenSAT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Guarda el token SAT en SQL Server</wsdl:documentation>
+      <wsdl:input message="tns:guardarTokenSATHttpPostIn" />
+      <wsdl:output message="tns:guardarTokenSATHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerContraseniaSAT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la contraseña del usuario SAT</wsdl:documentation>
+      <wsdl:input message="tns:obtenerContraseniaSATHttpPostIn" />
+      <wsdl:output message="tns:obtenerContraseniaSATHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDelegadoSAT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la contraseña del usuario SAT</wsdl:documentation>
+      <wsdl:input message="tns:obtenerDelegadoSATHttpPostIn" />
+      <wsdl:output message="tns:obtenerDelegadoSATHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="infoPagoFacturacion">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la informacion de Pagos por porfacturación</wsdl:documentation>
@@ -733,6 +991,51 @@
     </wsdl:operation>
     <wsdl:operation name="agregarExension">
       <soap:operation soapAction="http://tempuri.org/agregarExension" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="trasladoFacturasOracle">
+      <soap:operation soapAction="http://tempuri.org/trasladoFacturasOracle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTokenSAT">
+      <soap:operation soapAction="http://tempuri.org/obtenerTokenSAT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="guardarTokenSAT">
+      <soap:operation soapAction="http://tempuri.org/guardarTokenSAT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerContraseniaSAT">
+      <soap:operation soapAction="http://tempuri.org/obtenerContraseniaSAT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDelegadoSAT">
+      <soap:operation soapAction="http://tempuri.org/obtenerDelegadoSAT" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -851,6 +1154,51 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="trasladoFacturasOracle">
+      <soap12:operation soapAction="http://tempuri.org/trasladoFacturasOracle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTokenSAT">
+      <soap12:operation soapAction="http://tempuri.org/obtenerTokenSAT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="guardarTokenSAT">
+      <soap12:operation soapAction="http://tempuri.org/guardarTokenSAT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerContraseniaSAT">
+      <soap12:operation soapAction="http://tempuri.org/obtenerContraseniaSAT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDelegadoSAT">
+      <soap12:operation soapAction="http://tempuri.org/obtenerDelegadoSAT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="infoPagoFacturacion">
       <soap12:operation soapAction="http://tempuri.org/infoPagoFacturacion" style="document" />
       <wsdl:input>
@@ -962,6 +1310,51 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="trasladoFacturasOracle">
+      <http:operation location="/trasladoFacturasOracle" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTokenSAT">
+      <http:operation location="/obtenerTokenSAT" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="guardarTokenSAT">
+      <http:operation location="/guardarTokenSAT" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerContraseniaSAT">
+      <http:operation location="/obtenerContraseniaSAT" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDelegadoSAT">
+      <http:operation location="/obtenerDelegadoSAT" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="infoPagoFacturacion">
       <http:operation location="/infoPagoFacturacion" />
       <wsdl:input>
@@ -1066,6 +1459,51 @@
     </wsdl:operation>
     <wsdl:operation name="agregarExension">
       <http:operation location="/agregarExension" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="trasladoFacturasOracle">
+      <http:operation location="/trasladoFacturasOracle" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTokenSAT">
+      <http:operation location="/obtenerTokenSAT" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="guardarTokenSAT">
+      <http:operation location="/guardarTokenSAT" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerContraseniaSAT">
+      <http:operation location="/obtenerContraseniaSAT" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDelegadoSAT">
+      <http:operation location="/obtenerDelegadoSAT" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
