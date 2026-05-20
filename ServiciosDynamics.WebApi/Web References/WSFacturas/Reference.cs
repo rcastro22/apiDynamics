@@ -427,27 +427,29 @@ namespace ServiciosDynamics.WebApi.WSFacturas {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/guardarTokenSAT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string guardarTokenSAT(string _user, string _token, System.DateTime _expires) {
+        public string guardarTokenSAT(string _user, string _token, string _felToken, System.DateTime _expires) {
             object[] results = this.Invoke("guardarTokenSAT", new object[] {
                         _user,
                         _token,
+                        _felToken,
                         _expires});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void guardarTokenSATAsync(string _user, string _token, System.DateTime _expires) {
-            this.guardarTokenSATAsync(_user, _token, _expires, null);
+        public void guardarTokenSATAsync(string _user, string _token, string _felToken, System.DateTime _expires) {
+            this.guardarTokenSATAsync(_user, _token, _felToken, _expires, null);
         }
         
         /// <remarks/>
-        public void guardarTokenSATAsync(string _user, string _token, System.DateTime _expires, object userState) {
+        public void guardarTokenSATAsync(string _user, string _token, string _felToken, System.DateTime _expires, object userState) {
             if ((this.guardarTokenSATOperationCompleted == null)) {
                 this.guardarTokenSATOperationCompleted = new System.Threading.SendOrPostCallback(this.OnguardarTokenSATOperationCompleted);
             }
             this.InvokeAsync("guardarTokenSAT", new object[] {
                         _user,
                         _token,
+                        _felToken,
                         _expires}, this.guardarTokenSATOperationCompleted, userState);
         }
         

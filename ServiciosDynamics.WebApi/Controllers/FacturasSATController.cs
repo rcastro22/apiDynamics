@@ -31,7 +31,7 @@ namespace ServiciosDynamics.WebApi.Controllers
         [Route("obtenerFacturasSAT")]
         public async Task<IHttpActionResult> obtenerFacturasSAT([FromBody] FacturasModel model)
         {
-            string accessToken;
+            string token, accessToken,felToken;
             string usuarioConsulta = model.usuario;
 
             WSFacturas.WSFacturas wSFacturas = new WSFacturas.WSFacturas();
@@ -41,11 +41,16 @@ namespace ServiciosDynamics.WebApi.Controllers
             {
                 if (!string.IsNullOrEmpty(userDelegated))
                 {
-                    accessToken = await GetAccessToken(model.usuario, userDelegated);
+                    token = await GetAccessToken(model.usuario, userDelegated);
                     usuarioConsulta = userDelegated;
                 }
                 else
-                    accessToken = await GetAccessToken(model.usuario);
+                {
+                    token = await GetAccessToken(model.usuario);
+                }                    
+                var tokenParts = token.Split('|');
+                accessToken = tokenParts[0];
+                felToken = tokenParts.Length > 1 ? tokenParts[1] : null;
             }
             catch (Exception ex)
             {
@@ -69,13 +74,37 @@ namespace ServiciosDynamics.WebApi.Controllers
                               $"&fechaEmisionIni={Uri.EscapeDataString(model.fechaEmisionIni)}" +
                               $"&fechaEmisionFinal={Uri.EscapeDataString(model.fechaEmisionFinal)}";
 
-                // Nueva instancia sin manejo de cookies para la llamada final con header Authtoken
-                using (var clientFinal = new HttpClient())
+
+                var cookieContainer = new CookieContainer();
+                var handler = new HttpClientHandler
                 {
-                    clientFinal.DefaultRequestHeaders.Add("Authtoken", $"token {accessToken}");
+                    CookieContainer = cookieContainer,
+                    UseCookies = true
+                };
+
+                // Agregar la cookie al dominio específico
+                cookieContainer.Add(
+                    new Uri("https://felcons.c.sat.gob.gt"),
+                    new Cookie("felTokc", felToken)
+                );
+
+                // Nueva instancia sin manejo de cookies para la llamada final con header Authtoken
+                using (var clientFinal = new HttpClient(handler))
+                {
+                    var request = new HttpRequestMessage(HttpMethod.Get, url7);
+
+                    request.Headers.TryAddWithoutValidation("Authorization", accessToken);
+                    request.Headers.TryAddWithoutValidation("User-Agent", "Mozilla/5.0");
+
+                    // 12-05-2026, se cambia el header de Authtoken por Authorization, ya que la SAT ha actualizado su API para requerir este formato
+                    //clientFinal.DefaultRequestHeaders.Add("Authtoken", $"token {accessToken}");
+
+                    // El header Content-Type no es necesario para un GET, y la SAT no lo requiere, por lo que se comenta para evitar posibles errores de la API
                     //clientFinal.DefaultRequestHeaders.Add("Content-Type", "application/json");
 
-                    var response7 = await clientFinal.GetAsync(url7);
+
+                    var response7 = await clientFinal.SendAsync(request);
+                    //var response7 = await clientFinal.GetAsync(url7);
                     string jsonResult = await response7.Content.ReadAsStringAsync();
 
                     //var result = JsonConvert.DeserializeObject(jsonResult);
@@ -193,6 +222,8 @@ namespace ServiciosDynamics.WebApi.Controllers
                     var response3 = await client.GetAsync(url3);
                     string html3 = await response3.Content.ReadAsStringAsync();
 
+                    OnClickData dataPortada_1 = HtmlOnClickExtractor.portada1_ExtractByUrl(html3, "https://felcons.c.sat.gob.gt/dte-agencia-virtual/dte-consulta");
+
                     var doc3 = new HtmlDocument();
                     doc3.LoadHtml(html3);
 
@@ -230,26 +261,27 @@ namespace ServiciosDynamics.WebApi.Controllers
                     // ─── REQUEST 5: POST portada para obtener felTokc y url_token ─────────
                     string url5 = "https://farm3.sat.gob.gt/menu/portada.jsf";
 
-                    var data5 = new FormUrlEncodedContent(new[]
+
+
+                    var pairs_5 = new List<KeyValuePair<string, string>>
                     {
-                    new KeyValuePair<string, string>("javax.faces.partial.ajax",    "true"),
-                    new KeyValuePair<string, string>("javax.faces.source",          "frmMenu:j_idt41"),
-                    new KeyValuePair<string, string>("javax.faces.partial.execute", "@all"),
-                    new KeyValuePair<string, string>("frmMenu:j_idt41",             "frmMenu:j_idt41"),
-                    new KeyValuePair<string, string>("ses",                         "836662932"),
-                    new KeyValuePair<string, string>("opc",                         "41031"),
-                    new KeyValuePair<string, string>("frmMenu:j_idt41_menuid",
-                        "280dedf9-5aa9-4c6c-aec3-64583b9f95fd|4_4_5"),
-                    new KeyValuePair<string, string>("gui",                         "agxM0x21UY0_"),
-                    new KeyValuePair<string, string>("menu_action",                 "hide"),
-                    new KeyValuePair<string, string>("win",                         "M"),
-                    new KeyValuePair<string, string>("url",
-                        "https://felcons.c.sat.gob.gt/dte-agencia-virtual/dte-consulta"),
-                    new KeyValuePair<string, string>("frmMenu",                     "frmMenu"),
-                    new KeyValuePair<string, string>("frmMenu:idhUrlSelected",      urlSelected2 ?? ""),
-                    new KeyValuePair<string, string>("frmMenu:itBuscarMobile",      ""),
-                    new KeyValuePair<string, string>("javax.faces.ViewState",       viewState ?? "")
-                });
+                        new KeyValuePair<string, string>("javax.faces.partial.ajax",    "true"),
+                        new KeyValuePair<string, string>("javax.faces.source",          dataPortada_1.s),
+                        new KeyValuePair<string, string>("javax.faces.partial.execute", "@all"),
+                        new KeyValuePair<string, string>(dataPortada_1.s,               dataPortada_1.s),
+                        new KeyValuePair<string, string>("frmMenu",                     "frmMenu"),
+                        new KeyValuePair<string, string>("frmMenu:idhUrlSelected",      urlSelected2 ?? ""),
+                        new KeyValuePair<string, string>("frmMenu:itBuscarMobile",      ""),
+                        new KeyValuePair<string, string>("javax.faces.ViewState",       viewState ?? "")
+                    };
+
+                    for (int i = 0; i < dataPortada_1.pa.Count; i++)
+                    {
+                        pairs_5.Add(new KeyValuePair<string, string>(dataPortada_1.pa[i].name, dataPortada_1.pa[i].value));
+                    }
+
+                    var data5 = new FormUrlEncodedContent(pairs_5);
+
 
                     var response5 = await client.PostAsync(url5, data5);
                     string html5 = await response5.Content.ReadAsStringAsync();
@@ -282,10 +314,10 @@ namespace ServiciosDynamics.WebApi.Controllers
                         DateTime expires = GetCookieExpires(cookieContainer,
                             new Uri(url6).Host + "/dte-agencia-virtual/dte-consulta", "ACCESS_TOKEN");
 
-                        wSFacturas.guardarTokenSAT(_user, accessToken, expires);
+                        wSFacturas.guardarTokenSAT(_user, accessToken, felTokc, expires);
                     }
 
-                    token = accessToken;
+                    token = accessToken + "|" + felTokc;
 
                 }
             }
@@ -474,7 +506,7 @@ namespace ServiciosDynamics.WebApi.Controllers
                     var response5b = await client.GetAsync(url5b);
                     string html5b = await response5b.Content.ReadAsStringAsync();
 
-                    /*
+                    
                     // felTokc viene en las cookies del response 5
                     string felTokc = GetCookieValue(cookieContainer,
                         "farm3.sat.gob.gt", "felTokc");
@@ -482,7 +514,7 @@ namespace ServiciosDynamics.WebApi.Controllers
                     // ─── REQUEST 6: GET url_token para obtener ACCESS_TOKEN ───────────────
                     string url6 = urlToken;
                     var response6 = await client.GetAsync(url6);
-                    */
+                    
 
                     string accessToken = GetCookieValue(cookieContainer,
                         "felcons.c.sat.gob.gt/dte-agencia-virtual/dte-consulta", "ACCESS_TOKEN");
@@ -492,10 +524,10 @@ namespace ServiciosDynamics.WebApi.Controllers
                         DateTime expires = GetCookieExpires(cookieContainer,
                             "felcons.c.sat.gob.gt/dte-agencia-virtual/dte-consulta", "ACCESS_TOKEN");
 
-                        wSFacturas.guardarTokenSAT(_user, accessToken, expires);
+                        wSFacturas.guardarTokenSAT(_user, accessToken, felTokc, expires);
                     }
 
-                    token = accessToken;
+                    token = accessToken + "|" + felTokc;
 
                 }
             }
