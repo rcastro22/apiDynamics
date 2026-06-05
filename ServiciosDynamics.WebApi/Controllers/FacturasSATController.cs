@@ -1,22 +1,9 @@
-﻿using HtmlAgilityPack;
-using Newtonsoft.Json;
-using ServiciosDynamics.WebApi.Models.Employees;
-using ServiciosDynamics.WebApi.Models.FacturaSat;
-using ServiciosDynamics.WebApi.WSFacturas;
+﻿using ServiciosDynamics.WebApi.Models.FacturaSat;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Reflection;
-using System.Security.Policy;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Xml;
 using LoadInvoiceSATGT;
 
 namespace ServiciosDynamics.WebApi.Controllers

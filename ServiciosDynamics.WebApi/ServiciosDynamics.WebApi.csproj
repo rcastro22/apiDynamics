@@ -46,9 +46,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HtmlAgilityPack, Version=2.0.20.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
-      <HintPath>..\packages\HtmlAgilityPack.Net45.2.0.20\lib\net45\HtmlAgilityPack.dll</HintPath>
-    </Reference>
     <Reference Include="LoadInvoiceSATGT, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Descargas\SATInvoiceVersion\1.0.3\LoadInvoiceSATGT.dll</HintPath>
