@@ -10,9 +10,9 @@ namespace ServiciosDynamics.WebApi.Models.FacturaSat
     {
         [Required]
         public string usuario {  get; set; }
-        [Required]
         public string fechaEmisionIni { get; set; }
-        [Required]
         public string fechaEmisionFinal {  get; set; }
+        public string nitEmisor { get; set; }
+        public string noAutorizacion { get; set; }
     }
 }
